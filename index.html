@@ -39,7 +39,7 @@
     <div class="section-wrapper container-xl">
 
 	<!-- input -->
-    	<section>
+    	<section id="input-section">
 		
         	<h2>Fill in some basic information to get started:</h2>
 		
@@ -65,14 +65,18 @@
 				<input type="number" name="title" class="col-12 col-sm-9" id="goal">
 			
 			</form>
-			<div class="wrapper-center">
-			    <div id="scroll-here"></div> <!-- point to scroll -->
-			    <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />
-            </div>
 			
-		    <h2>Check when you can typically read:</h2>
 		    <form class="input-wrapper form-row">
 		        <div class="col-12 col-sm-6">
+
+                When can you typically read?<br>
+
+                At: <input type="time"><br>
+	            For: <input type="number"> minutes
+
+	            </div>
+	            <div class="col-12 col-sm-6">
+
 	                <input type="checkbox" name="monday" value="1" checked> Monday<br>
 		            <input type="checkbox" name="monday" value="1" checked> Tuesday<br>
     	            <input type="checkbox" name="monday" value="1" checked> Wednesday<br>
@@ -80,15 +84,17 @@
 	                <input type="checkbox" name="monday" value="1" checked> Friday<br>
 	                <input type="checkbox" name="monday" value="1" checked> Saturday<br>
 	                <input type="checkbox" name="monday" value="1" checked> Sunday<br>
-	            </div>
-	            <div class="col-12 col-sm-6">
-	                At: <input type="time"><br>
-	                For: <input type="number"> minutes
+
 	            </div>
 	        </form>
-		</section id="result">
+
+            <div class="wrapper-center">
+			    <div id="scroll-here"></div> <!-- point to scroll -->
+			    <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />
+            </div>
+		</section>
 	
-	    <section>
+	    <section id="result">
 	
 		    <h2>Your reading schedule:</h2>
 		    <div class="input-wrapper">
