@@ -7,33 +7,103 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>iReadMore</title>
 </head>
 <body>
     <header class="fixed-top">  
-        <nav class="navbar navbar-light navbar-expand bg-light">
+        <nav class="navbar navbar-expand">
+            <div class="container-xl">
             
-            <img id="logo" src="assets/images/logo.png" alt="Logo">
+                <img id="logo" src="assets/images/logo.png" alt="Logo">
 
-            <ul class="navbar-nav ml-auto mr-2">
-                <li class="active nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-rocket"></i></a></li>
-                <li class="nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i></a></li>
+                <ul class="navbar-nav ml-auto mr-2">
+                    <li class="active nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-rocket"></i></a></li>
+                    <li class="nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i></a></li>
                     
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-folder-open"></i>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-folder-open"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            Currently empty. Saved reading plans appear here.
                         <a class="dropdown-item" href="#">(empty)</a>
                           
-                    </div>
-                </li>
-
-            </ul>
-         
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
+    
+    <div class="section-wrapper container-xl">
+
+	<!-- input -->
+    	<section>
+		
+        	<h2>Fill in some basic information to get started:</h2>
+		
+			<form class="input-wrapper form-row">
+  				<label class="structured-label col-12 col-sm-3">Book title</label>
+				<input type="text" name="title" class="col-12 col-sm-9" oninput="">
+  				<label class="structured-label col-12 col-sm-3">Number of pages</label>
+				<input type="number" name="pages" class="col-12 col-sm-9" oninput="">
+			</form>
+		
+			<form class="input-wrapper form-row">
+				
+				<span class="structured-label col-12 col-sm-3">Set a reading goal</span>
+				
+				<div class="col-12 col-sm-9">
+					<input type="radio" name="outputType" value="1" checked id="outputAmount">
+					<label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
+  					<input type="radio" name="outputType" value="2" id="outputWhen">
+					<label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
+  				</div>	
+				
+				<label class="structured-label col-12 col-sm-3" id="inputMethod">Number of pages</label>
+				<input type="number" name="title" class="col-12 col-sm-9" id="goal">
+			
+			</form>
+			<div class="wrapper-center">
+			    <div id="scroll-here"></div> <!-- point to scroll -->
+			    <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />
+            </div>
+			
+		    <h2>Check when you can typically read:</h2>
+		    <form class="input-wrapper form-row">
+		        <div class="col-12 col-sm-6">
+	                <input type="checkbox" name="monday" value="1" checked> Monday<br>
+		            <input type="checkbox" name="monday" value="1" checked> Tuesday<br>
+    	            <input type="checkbox" name="monday" value="1" checked> Wednesday<br>
+	                <input type="checkbox" name="monday" value="1" checked> Thursday<br>
+	                <input type="checkbox" name="monday" value="1" checked> Friday<br>
+	                <input type="checkbox" name="monday" value="1" checked> Saturday<br>
+	                <input type="checkbox" name="monday" value="1" checked> Sunday<br>
+	            </div>
+	            <div class="col-12 col-sm-6">
+	                At: <input type="time"><br>
+	                For: <input type="number"> minutes
+	            </div>
+	        </form>
+		</section id="result">
+	
+	    <section>
+	
+		    <h2>Your reading schedule:</h2>
+		    <div class="input-wrapper">
+		
+			    (depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time
+			    <input id="print" type="button" value="Printable version" onclick="someFunction();" />
+			    <input id="addGoogle" type="button" value="add to Google Calendar" onclick="someFunction();" />
+		    </div>
+		
+		    <div class="input-wrapper" id="months">
+			    <!-- the schedule appears here, entirely in JS -->
+		    </div>
+		
+        </section>
+	</div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
