@@ -1,35 +1,28 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Book Reading Planner
 
-Welcome USER_NAME,
+### Code Institute Milestone Project 2 - Interactive Frontend Development
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## UX
+User stories:
+Helping to plan reading a book intentionally
 
-## Gitpod Reminders
+### Strategy
+Create a reading schedule for books, offering 2 tracks of information as an output:
+- How long does it take to read the entire book by reading x pages or x chapters every x day(s)
+- How many pages or chapters do I need to read per x day(s) to be finished by a certain date
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### Scope
+Initial Input from the user:
+- Book title
+- number of pages
+- reading goal (date to finish or number of pages per read)
 
-`python3 -m http.server`
+Have further options selectable such as:
+- 7 weekdays to enable or disable
+- What time the reading is happening
+- how long a reading session normally is
 
-A blue button should appear to click: *Expose*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Expose*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+Output: Calendar with the days marked when the reading needs to happen. The user has the following options how to proceed:
+- generate a pdf with the schedule
+- export to Google Calendar (main calendar)
+- Save locally in the browser
