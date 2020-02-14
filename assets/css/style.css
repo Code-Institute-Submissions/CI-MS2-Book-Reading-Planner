@@ -9,35 +9,36 @@ body {
 	background-size: cover;
 }
 
+/*------------------------------------------------------- Box special */
+
+hr {
+    border: 0.5px solid #a5978b;
+    margin-top: -5px;
+    margin-bottom: 0;
+}
+
 /*------------------------------------------------------- Text: Headers and Paragraph */
 
 h1 {
-	
-	font-size: 1.5rem;
-	text-transform: uppercase;
-	font-family: "Blinker", sans-serif;
-	font-weight: 300;
-	text-align: right;
-	color: #222;
+    font-family: "Chela One", serif;
+	font-size: 1.8rem;
+	text-align: left;
+	display: block;
+    color: #c4bbaf;
+    margin-bottom: 1em;
 }
 
 h2 {
-	margin-top: 40px;
 	font-family: "Blinker", sans-serif;
 	font-weight: 600;
-	text-align: center;
+	text-align: left;
 	font-size: 1.2rem;
-	color: #fff;
+	color: #a5978b;
 	text-shadow: 0 0 2px black;
+    margin-top: 15px;
+  
 }
 
-h3 {
-    font-family: "Chela One", serif;
-	font-size: 1.8rem;
-	text-align: center;
-	display: block;
-    color: #c4bbaf;
-}
 
 p {
     margin: 0;
@@ -89,12 +90,13 @@ i {
 
 .input-wrapper {
 	padding: 10px;
-	background-color: rgba(0,0,0,0.1);
-	border-radius: 15px;
 	margin-bottom: 15px;
 	margin-right: 0;
 	margin-left: 0;
-	/*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
+}
+
+label {
+    margin: 0;
 }
 
 input[type=text],
@@ -108,11 +110,7 @@ input[type=time] {
 	margin-bottom: 5px;
 	border-width: 0;
 	border-radius: 5px;
-}
-
-input[type=number],
-input[type=date] {
-	max-width: 150px;
+    width: 100%;
 }
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
@@ -132,12 +130,14 @@ input[type=radio] {
 	margin: 0;
 }
 
-.structured-label {
-	text-align: right;
-	padding-right: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+.short-field {
+	max-width: 150px;
 }
+
+.short-label {
+    width: 40px;
+}
+
 
 #go-button {
 	width: 70px;
