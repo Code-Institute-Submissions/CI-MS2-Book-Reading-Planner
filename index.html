@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>iReadMore</title>
 </head>
@@ -35,81 +36,80 @@
             </div>
         </nav>
     </header>
+
+    <section id="introduction" class="container-xl">
+        <h3>Say goodbye to procrastination! Create a personal reading plan for any book. Check feasibility before you start reading. View, print or export your schedule to Google Calendar.</h3>
+    </section>
     
-    <div class="section-wrapper container-xl">
+    
 
 	<!-- input -->
-    	<section id="input-section">
+    <section id="input-section" class="container-xl">
 		
-        	<h2>Fill in some basic information to get started:</h2>
+       	<h2>Fill in some basic information to get started:</h2>
 		
-			<form class="input-wrapper form-row">
-  				<label class="structured-label col-12 col-sm-3">Book title</label>
-				<input type="text" name="title" class="col-12 col-sm-9" oninput="">
-  				<label class="structured-label col-12 col-sm-3">Number of pages</label>
-				<input type="number" name="pages" class="col-12 col-sm-9" oninput="">
-			</form>
+		<form class="input-wrapper form-row">
+  			<label class="structured-label col-12 col-sm-3">Book title</label>
+			<input type="text" name="title" class="col-12 col-sm-9" oninput="">
+  			<label class="structured-label col-12 col-sm-3">Number of pages</label>
+			<input type="number" name="pages" class="col-12 col-sm-9" oninput="">
+		</form>
 		
-			<form class="input-wrapper form-row">
+		<form class="input-wrapper form-row">
 				
-				<span class="structured-label col-12 col-sm-3">Set a reading goal</span>
+			<span class="structured-label col-12 col-sm-3">Set a reading goal</span>
 				
-				<div class="col-12 col-sm-9">
-					<input type="radio" name="outputType" value="1" checked id="outputAmount">
-					<label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
-  					<input type="radio" name="outputType" value="2" id="outputWhen">
-					<label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
-  				</div>	
-				
-				<label class="structured-label col-12 col-sm-3" id="inputMethod">Number of pages</label>
-				<input type="number" name="title" class="col-12 col-sm-9" id="goal">
+			<div class="col-12 col-sm-9">
+				<input type="radio" name="outputType" value="1" checked id="outputAmount">
+				<label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
+  				<input type="radio" name="outputType" value="2" id="outputWhen">
+				<label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
+  			</div>	
 			
-			</form>
+			<label class="structured-label col-12 col-sm-3" id="inputMethod">Number of pages</label>
+			<input type="number" name="title" class="col-12 col-sm-9" id="goal">
+		
+		</form>
 			
-		    <form class="input-wrapper form-row">
-		        <div class="col-12 col-sm-6">
-
+	    <form class="input-wrapper form-row">
+	        <div class="col-12 col-sm-6">
                 When can you typically read?<br>
-
                 At: <input type="time"><br>
-	            For: <input type="number"> minutes
-
-	            </div>
-	            <div class="col-12 col-sm-6">
-
-	                <input type="checkbox" name="monday" value="1" checked> Monday<br>
-		            <input type="checkbox" name="monday" value="1" checked> Tuesday<br>
-    	            <input type="checkbox" name="monday" value="1" checked> Wednesday<br>
-	                <input type="checkbox" name="monday" value="1" checked> Thursday<br>
-	                <input type="checkbox" name="monday" value="1" checked> Friday<br>
-	                <input type="checkbox" name="monday" value="1" checked> Saturday<br>
-	                <input type="checkbox" name="monday" value="1" checked> Sunday<br>
-
-	            </div>
-	        </form>
-
-            <div class="wrapper-center">
-			    <div id="scroll-here"></div> <!-- point to scroll -->
-			    <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />
+                For: <input type="number"> minutes
             </div>
-		</section>
+            <div class="col-12 col-sm-6">
+                <input type="checkbox" name="monday" value="1" checked> Monday<br>
+	            <input type="checkbox" name="monday" value="1" checked> Tuesday<br>
+   	            <input type="checkbox" name="monday" value="1" checked> Wednesday<br>
+                <input type="checkbox" name="monday" value="1" checked> Thursday<br>
+                <input type="checkbox" name="monday" value="1" checked> Friday<br>
+                <input type="checkbox" name="monday" value="1" checked> Saturday<br>
+                <input type="checkbox" name="monday" value="1" checked> Sunday<br>
+            </div>
+        </form>
+
+        <div class="wrapper-center">
+		    <div id="scroll-here"></div> <!-- point to scroll -->
+		    <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />
+        </div>
+	</section>
+
+    <section id="result" class="container-xl">
 	
-	    <section id="result">
+	    <h2>Your reading schedule:</h2>
+	    <div class="input-wrapper">
+		
+		    (depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time
+		    <input id="print" type="button" value="Printable version" onclick="someFunction();" />
+		    <input id="addGoogle" type="button" value="add to Google Calendar" onclick="someFunction();" />
+	    </div>
+		
+	    <div class="input-wrapper" id="months">
+		    <!-- the schedule appears here, entirely in JS -->
+	    </div>
+		
+    </section>
 	
-		    <h2>Your reading schedule:</h2>
-		    <div class="input-wrapper">
-		
-			    (depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time
-			    <input id="print" type="button" value="Printable version" onclick="someFunction();" />
-			    <input id="addGoogle" type="button" value="add to Google Calendar" onclick="someFunction();" />
-		    </div>
-		
-		    <div class="input-wrapper" id="months">
-			    <!-- the schedule appears here, entirely in JS -->
-		    </div>
-		
-        </section>
-	</div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
