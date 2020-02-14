@@ -1,7 +1,7 @@
 body {
 	font-family: "Blinker", sans-serif;
 	font-weight: 300;
-	/* background-image: radial-gradient(white, lightgray);*/
+	color: #fff;
 	background-image: url("../images/bg-image.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -31,9 +31,11 @@ h2 {
 }
 
 h3 {
-	font-size: 1.3rem;
+    font-family: "Chela One", serif;
+	font-size: 1.8rem;
 	text-align: center;
 	display: block;
+    color: #c4bbaf;
 }
 
 /*------------------------------------------------------- Header + Navbar    */
@@ -52,20 +54,25 @@ i {
     background-color: rgba(196,187,175,0.8);
 }
 
-/*------------------------------------------------------- Section: Input    */
+/*------------------------------------------------------- Section: Introduction    */
 
-#input-section {
+#introduction {
     margin-top: 120px;
 }
 
+
+/*------------------------------------------------------- Section: Input    */
+
+
+
 .input-wrapper {
 	padding: 10px;
-	background-color: rgba(255,255,255,0.6);
+	background-color: rgba(0,0,0,0.1);
 	border-radius: 15px;
 	margin-bottom: 15px;
 	margin-right: 0;
 	margin-left: 0;
-	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	/*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/
 }
 
 input[type=text],
