@@ -1,6 +1,7 @@
 body {
 	font-family: "Blinker", sans-serif;
 	font-weight: 300;
+    font-size: 1.1rem;
 	color: #fff;
 	background-image: url("../images/bg-image.jpg");
 	background-repeat: no-repeat;
@@ -8,7 +9,7 @@ body {
 	background-size: cover;
 }
 
-/*------------------------------------------------------- Headers */
+/*------------------------------------------------------- Text: Headers and Paragraph */
 
 h1 {
 	
@@ -36,6 +37,11 @@ h3 {
 	text-align: center;
 	display: block;
     color: #c4bbaf;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 /*------------------------------------------------------- Header + Navbar    */
@@ -147,4 +153,33 @@ input[type=radio] {
 .wrapper-center {
 	text-align: center;
 	margin-top: 30px;
+}
+
+/*------------------------------------------------------- Section calendar    */
+
+
+
+/*------------------------------------------------------- Footer    */
+
+footer {
+    padding-top: 15px;
+    background-color: rgba(196,187,175,0.8);
+    bottom: 0;
+    padding: 15px;
+    color: #5a2a27;
+	text-align: center;
+}
+
+footer > p {
+    display: inline;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #5c4742;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #c4bbaf;
+    padding-top: 3px; 
 }
