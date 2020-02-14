@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>iReadMore</title>
 </head>
@@ -38,15 +38,15 @@
     </header>
 
     <section id="introduction" class="container-xl">
-        <h1>Say goodbye to procrastination! Create a personal reading plan for any book. View, print or export your schedule to Google Calendar.</h1>
+        <h1><em>Say goodbye to procrastination! Create a personal reading plan for any book. View, print or export your schedule to Google Calendar.</em></h1>
     </section>
     
     
 
 	<!-- input -->
     <section id="input-section" class="container-xl">
-	    <h2>Enter some basic infomation to get started</h2>	
-		<hr>
+	    <h2><i class="fas fa-edit"></i> Enter some basic infomation to get started</h2>	
+		
 		<form class="form-row input-wrapper">
   			<div class="col-12 col-sm-7">
                 <label>Book title</label><br>
@@ -59,8 +59,8 @@
 		</form>
 		
 
-        <h2>Set a reading goal</h2>
-        <hr>
+        <h2><i class="fas fa-bullseye"></i> Set a reading goal</h2>
+        
 		<form class="form-row input-wrapper">
 
   			<div class="col-12 col-sm-7">
@@ -76,8 +76,8 @@
 
 		
 		</form>
-        <h2>When can you typically read?</h2>
-        <hr>
+        <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
+        
 			
 	    <form class="form-row input-wrapper">
 	        <div class="col-12 col-sm-6">
@@ -104,13 +104,13 @@
 
     <section id="calendar-section" class="container-xl">
 	
-	    <h1>Your reading schedule:</h1>
+	    <h1><em>Your reading schedule:</em></h1>
 	    <div class="input-wrapper">
 		
-		    (depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time
-            <input id="save" type="button" value="Save" onclick="someFunction();" />
-		    <input id="print" type="button" value="PDF" onclick="someFunction();" />
-		    <input id="addGoogle" type="button" value="Add to Google Calendar" onclick="someFunction();" />
+		    <p>(depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time</p>
+            <input id="save" type="button" value="Save" class="btn" onclick="someFunction();" />
+		    <input id="print" type="button" value="PDF" class="btn" onclick="someFunction();" />
+		    <input id="addGoogle" type="button" value="Add to Google Calendar" class="btn" onclick="someFunction();" />
 	    </div>
 		
 	    <div class="input-wrapper" id="months">
@@ -133,5 +133,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
