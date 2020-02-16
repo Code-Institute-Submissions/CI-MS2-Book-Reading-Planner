@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>iReadMore</title>
 </head>
@@ -16,7 +16,8 @@
         <nav class="navbar navbar-expand">
             <div class="container-xl">
             
-                <img id="logo" src="assets/images/logo.png" alt="Logo">
+                <span id="logo"><em>iReadMore</em></span>
+                <!-- <img id="logo" src="assets/images/logo.png" alt="Logo"> -->
 
                 <ul class="navbar-nav ml-auto mr-2">
                     <li class="nav-item mr-2"><a class="nav-link active" href="#"><i class="fas fa-rocket"></i></a></li>
@@ -44,17 +45,18 @@
     
 
 	<!-- input -->
-    <section id="input-section" class="container-xl">
+    <section id="input-section">
+    <div class="container-xl">
 	    <h2><i class="fas fa-edit"></i> Enter some basic infomation to get started</h2>	
 		
 		<form class="form-row input-wrapper">
   			<div class="col-12 col-sm-7">
                 <label>Book title</label><br>
-			    <input type="text" name="title" oninput="">
+			    <input type="text" name="title" id="bookTitle">
             </div>
             <div class="col-12 col-sm-5">
   			    <label>Total number of pages</label><br>
-			    <input type="number" name="pages" oninput="">
+			    <input type="number" name="pages" id="totalPages">
             </div>
 		</form>
 		
@@ -86,13 +88,13 @@
                 <label class="short-label">For:</label><input type="number" class="short-field"> (Minutes)
             </div>
             <div class="col-12 col-sm-6">
-                <input type="checkbox" name="monday" value="1" checked> Monday<br>
-	            <input type="checkbox" name="monday" value="1" checked> Tuesday<br>
-   	            <input type="checkbox" name="monday" value="1" checked> Wednesday<br>
-                <input type="checkbox" name="monday" value="1" checked> Thursday<br>
-                <input type="checkbox" name="monday" value="1" checked> Friday<br>
-                <input type="checkbox" name="monday" value="1" checked> Saturday<br>
-                <input type="checkbox" name="monday" value="1" checked> Sunday<br>
+                <input type="checkbox" class="dayCheck" id="sunday" name="sunday" value="1" checked><label for="sunday">Sunday</label><br>
+                <input type="checkbox" class="dayCheck" id="monday" name="monday" value="1" checked><label for="monday">Monday</label><br>
+	            <input type="checkbox" class="dayCheck" id="tuesday" name="Tuesday" value="1" checked><label for="tuesday">Tuesday</label><br>
+   	            <input type="checkbox" class="dayCheck" id="wednesday" name="Wednesday" value="1" checked><label for="wednesday">Wednesday</label><br>
+                <input type="checkbox" class="dayCheck" id="thursday" name="Thursday" value="1" checked><label for="thursday">Thursday</label><br>
+                <input type="checkbox" class="dayCheck" id="friday" name="Friday" value="1" checked><label for="friday">Friday</label><br>
+                <input type="checkbox" class="dayCheck" id="saturday" name="Saturday" value="1" checked><label for="saturday">Saturday</label><br>
             </div>
         </form>
 
@@ -100,6 +102,7 @@
 		    <div id="scroll-here"></div> <!-- point to scroll -->
 		    <!-- button perhaps not needed <input id="go-button" type="button" value="GO" onclick="drawCalendar();" class="btn" />  -->
         </div>
+    </div>
 	</section>
 
     <section id="calendar-section" class="container-xl">
