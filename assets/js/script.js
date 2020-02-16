@@ -1,3 +1,4 @@
+
 $(document).ready(function() {	
 	
 	$("#outputAmount").click(function(){
@@ -18,7 +19,54 @@ $(document).ready(function() {
     });
     
     drawCalendar();
+
+    let today = new Date();
+    let initialBook = new UserInput(today, "Example", 500, 20, null, [true,true,true,true,true,true,true], today.getTime(), 30);
+    savedData.add(initialBook);
 });
+
+
+function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekdaySelected, readingTime, readingDuration) {
+	this.startDate = startDate; //today's date when the object is created
+	this.bookTitle = bookTitle;
+    this.totalPages = totalPages;
+    this.goalPages = goalPages; // if option 1 was chosen, otherwise nil
+    this.goalDate = goalDate; // if option 2 was chosen, otherwise nil
+    this.weekdaySelected = weekdaySelected; // array with 7 bool values
+    this.readingTime = readingTime;
+    this.readingDuration = readingDuration;
+
+	this.speak = function () {
+		console.log(`vrooooooom!`);
+	};
+}
+
+let savedData = {
+    books: [],
+    currentBook: 0,
+	add: function(oneBook) {
+        this.books.push(oneBook);
+	}
+};
+
+$('#bookTitle').on('input', function() {
+    savedData.books[savedData.currentBook].bookTitle = $(this).val();
+});
+
+$('#totalPages').on('input', function() {
+    savedData.books[savedData.currentBook].totalPages = $(this).val();
+});
+
+$('#goal').on('input', function() {
+    savedData.books[savedData.currentBook].goalPages = $(this).val();
+});
+
+$('.dayCheck').click(function () {
+    savedData.books[savedData.currentBook].weekdaySelected[$('.dayCheck').index(this)] = this.checked;
+});
+
+
+
 
 function drawCalendar() {
 	let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -28,7 +76,7 @@ function drawCalendar() {
 	let today = new Date();
 	let dateAdder = new Date();
 	
-	for (let k = 0; k < 40; k++) { // starting // Add a month with every time it loops
+	for (let k = 0; k < 3; k++) { // starting // Add a month with every time it loops
 		dateAdder.setDate(1);
 		dateAdder.setMonth(today.getMonth() +  k);
 		let displayThisMonth = dateAdder.getUTCMonth();
@@ -41,7 +89,9 @@ function drawCalendar() {
 		let tbl = document.createElement('table');
 		tbl.classList.add("calendar-month");
   		let tbdy = document.createElement('tbody');
-		calendarMonthBg.appendChild(monthTitle);
+        calendarMonthBg.appendChild(monthTitle);
+        let hr = document.createElement('hr');
+        calendarMonthBg.appendChild(hr);
 	
 		// ************* building the rows:
   	for (let i = 0; i < 7; i++) {
@@ -53,22 +103,24 @@ function drawCalendar() {
 		// *************** building the columns
     	for (let j = 0; j < 7; j++) {
 			   		
-        	let td = document.createElement('td');
-        	
-			td.style.width = "45px";
-			td.style.textAlign = "center";
+            let td = document.createElement('td');
+            
+       
         	tr.appendChild(td)
       		if (i == 0) { // create titles
 				td.innerText = weekDays[j];
-				td.style.fontWeight = "600";
+                td.style.fontWeight = "600";
+                //td.style.color = "#c4bbaf";
 			} else {
 				td.innerText = dateAdder.getUTCDate();
 				if (displayThisMonth != dateAdder.getUTCMonth()) {
-					td.style.color = "gray";
+					td.style.color = "#ccc";
 				} else {
-					td.style.backgroundColor = "rgba(255,255,255,0.8)";
+
+                    //td.style.backgroundColor = "#c4bbaf";
+                    //td.style.color = "white";
 				}
-				td.style.height = "45px";
+			
 				dateAdder.setDate(dateAdder.getDate() + 1);
 			}
     	}
