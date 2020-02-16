@@ -2,11 +2,8 @@ body {
 	font-family: "Blinker", sans-serif;
 	font-weight: 300;
     font-size: 1.1rem;
-	color: #fff;
-	background-image: url("../images/bg-image.jpg");
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
+	background-color: #fff;
+    color: #000;
 }
 
 /*------------------------------------------------------- Box special */
@@ -20,13 +17,14 @@ hr {
 /*------------------------------------------------------- Text: Headers and Paragraph */
 
 h1 {
-    font-family: "Anonymous Pro", serif;
-	font-size: 1.6rem;
+    font-family: "Chela One", serif;
+	font-size: 2rem;
 	text-align: left;
 	display: block;
-    color: #c1df1f;
+    color: #5a2a27;
     margin-bottom: 1em;
-    text-transform: uppercase;
+    margin-top: 1em;
+    
     
 }
 
@@ -35,7 +33,7 @@ h2 {
 	font-weight: 600;
 	text-align: left;
 	font-size: 1.2rem;
-	color: #c4bbaf;
+	color: #99ccff;
 	text-shadow: 0 0 2px black;
     margin-top: 2em;
   
@@ -46,7 +44,7 @@ h3 {
 	font-weight: 600;
 	text-align: center;
 	font-size: 1.2rem;
-	color: #a5978b;
+	color: #000;
     margin-top: 15px;
   
 }
@@ -60,18 +58,23 @@ p {
 /*------------------------------------------------------- Header + Navbar    */
 
 #logo {
-    max-height: 60px;
+    font-family: "Chela One", serif;
+    font-size: 2.5rem;
+    color: #fff;
+    letter-spacing: 3px;
+    padding-left: 15px;
 }
 
 header i {
-    font-size: 2rem;
-    margin-left: 1rem;
+    font-size: 1.5rem;
+    margin-left: 15px;
     text-align: center;
 }
 
 .navbar {
     /*background-color: rgba(196,187,175,0.9);*/
-    background-image: linear-gradient(to right, rgba(196,187,175,0.9) , rgba(165,151,139,0.9));
+    
+    background-image: linear-gradient(to right, #3d0101, #bc2615);
 }
 
 .navbar-nav .nav-link {
@@ -80,7 +83,7 @@ header i {
 
 
 .navbar-nav .active {
-    color: #c1df1f;
+    color: #99ccff;
 }
 
 
@@ -92,13 +95,19 @@ header i {
 /*------------------------------------------------------- Section: Introduction    */
 
 #introduction {
-    margin-top: 120px;
+    margin-top: 100px;
 }
 
 
 /*------------------------------------------------------- Section: Input    */
 
-
+#input-section {
+    background-image: url("../images/bg-image.png");
+    background-repeat: no-repeat;
+	background-size: cover;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 
 .input-wrapper {
 	padding: 10px;
@@ -117,6 +126,7 @@ section i {
 
 label {
     margin: 0;
+    color: #fff;
 }
 
 input[type=text],
@@ -158,16 +168,8 @@ input[type=radio] {
     width: 40px;
 }
 
-
-#go-button {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	background-color: green;
-	color: #fff;
-	font-weight: 600;
-	box-shadow: 0 0 2px white;
-	font-size: 1.5rem;
+.dayCheck {
+    margin-right: 5px;
 }
 
 .wrapper-center {
@@ -178,10 +180,11 @@ input[type=radio] {
 /*------------------------------------------------------- Section calendar    */
 
 .btn {
-    background-color: #fff;
+    background-color: #99ccff;
     border-radius: 10px;
     min-width: 100px;
     margin: 5px;
+    font-weight: 600;
 }
 
 .calendar-bg {
@@ -208,10 +211,10 @@ td {
 
 footer {
     padding-top: 15px;
-    background-color: rgba(196,187,175,0.8);
+    background-image: linear-gradient(to right, #bc2615, #3d0101);
     bottom: 0;
     padding: 15px;
-    color: #5a2a27;
+    color: #fff;
 	text-align: center;
 }
 
@@ -225,6 +228,6 @@ footer > p {
     background-color: #5c4742;
     border-radius: 4px;
     font-size: 18px;
-    color: #c4bbaf;
+    color: #fff;
     padding-top: 3px; 
 }
