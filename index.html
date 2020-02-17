@@ -15,10 +15,7 @@
     <header class="fixed-top">  
         <nav class="navbar navbar-expand">
             <div class="container-xl">
-            
                 <span id="logo"><em>iReadMore</em></span>
-                <!-- <img id="logo" src="assets/images/logo.png" alt="Logo"> -->
-
                 <ul class="navbar-nav ml-auto mr-2">
                     <li class="nav-item mr-2"><a class="nav-link active" href="#"><i class="fas fa-rocket"></i></a></li>
                     <li class="nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i></a></li>
@@ -42,8 +39,6 @@
         <h1><em>Say goodbye to procrastination! Create a personal reading plan for any book. View, print or export your schedule to Google Calendar.</em></h1>
     </section>
     
-    
-
 	<!-- input -->
     <section id="input-section">
     <div class="container-xl">
@@ -52,11 +47,11 @@
 		<form class="form-row input-wrapper">
   			<div class="col-12 col-sm-7">
                 <label>Book title</label><br>
-			    <input type="text" name="title" id="bookTitle">
+			    <input type="text" name="title" id="bookTitle" placeholder="Example">
             </div>
             <div class="col-12 col-sm-5">
   			    <label>Total number of pages</label><br>
-			    <input type="number" name="pages" id="totalPages">
+			    <input type="number" name="pages" id="totalPages" placeholder="500">
             </div>
 		</form>
 		
@@ -73,7 +68,7 @@
             </div>
             <div class="col-12 col-sm-5">
   			    <label id="inputMethod">Number of pages</label><br>
-			    <input type="number" name="title" id="goal">
+			    <input type="number" name="title" id="goal" placeholder="10">
             </div>
 
 		
@@ -110,7 +105,7 @@
 	    <h1><em>Your reading schedule:</em></h1>
 	    <div class="input-wrapper">
 		
-		    <p>(depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time</p>
+		    <p id="summary">(depending on the choice above) You will be inished with reading on (date), or you have to read xx pages every time</p>
             <input id="save" type="button" value="Save" class="btn" onclick="someFunction();" />
 		    <input id="print" type="button" value="PDF" class="btn" onclick="someFunction();" />
 		    <input id="addGoogle" type="button" value="Add to Google Calendar" class="btn" onclick="someFunction();" />
