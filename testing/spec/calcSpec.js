@@ -60,47 +60,48 @@ describe("CountDays", function() {
             expect(window.alert).toHaveBeenCalledWith("Error! Value must not be smaller than 1");
         });
     })
-
 })
 
-/*
-describe("FizzBuzz", function () {
-
-    beforeEach(function () {
-        FizzBuzz = new fizzBuzz();
-    });
-
-    describe("Checks Modulus", function () {
+describe("countPages", function() {
+    describe("Check correct count", function(){
         it("should exist", function () {
-            expect(fizzBuzz).toBeDefined();
+            expect(countPages).toBeDefined();
         });
-
-        it("should return FizzBuzz if divisible by 3 and by 5", function () {
-            var result = fizzBuzz(15);
-            expect(result).toBe("FizzBuzz");
+        it("should return 76", function() {
+            let date1 = new Date(2020,1,19);
+            let date2 = new Date(2020,4,4);
+            let result = countPages(date1, date2);
+            expect(result).toBe(76);
         });
-
-        it("should return Fizz if divisible by 3", function () {
-            var result = fizzBuzz(9);
-            expect(result).toBe("Fizz");
+        it("should return 966", function() {
+            let date1 = new Date(2020,1,19);
+            let date2 = new Date(2022,9,11); 
+            let result = countPages(date1, date2);
+            expect(result).toBe(966);
         });
-
-        it("should return Buzz if divisible by 5", function () {
-            var result = fizzBuzz(25);
-            expect(result).toBe("Buzz");
+        it("should return 1", function() {
+            let date1 = new Date(2020,1,19);
+            let date2 = new Date(2020,1,19); 
+            let result = countPages(date1, date2);
+            expect(result).toBe(1);
         });
-
-        it("should return number if not divisile by 3 or by 5", function () {
-            var result = fizzBuzz(2);
+        it("should return 2", function() {
+            let date1 = new Date(2020,1,19);
+            let date2 = new Date(2020,1,20); 
+            let result = countPages(date1, date2);
             expect(result).toBe(2);
         });
 
-        it("should return an error if we don't supply a number", function() {
-            spyOn(window, "alert");
-            var result = fizzBuzz(alert("Error!"));
-            expect(window.alert).toHaveBeenCalledWith("Error!");
-        });
     });
-});
+    describe("Errors", function(){
 
-*/
+        //*********************** checking error: date in the past 
+        it("should return an error (date is in the past)", function() {
+            spyOn(window, "alert");
+            let date1 = new Date(2020,1,19);
+            let date2 = new Date(2020,1,18);
+            let result = countPages(date1,date2);
+            expect(window.alert).toHaveBeenCalledWith("Error! The date must not be in the past");
+        });
+    })
+})
