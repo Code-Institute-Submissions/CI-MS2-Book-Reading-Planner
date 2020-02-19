@@ -11,14 +11,15 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>iReadMore</title>
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar">
     <header class="fixed-top">  
         <nav class="navbar navbar-expand">
             <div class="container-xl">
                 <span id="logo"><em>iReadMore</em></span>
                 <ul class="navbar-nav ml-auto mr-2">
-                    <li class="nav-item mr-2"><a class="nav-link active" href="#"><i class="fas fa-rocket"></i></a></li>
-                    <li class="nav-item mr-2"><a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i></a></li>
+                    <li class="nav-item mr-2"><a class="nav-link" href="#introduction"><i class="fas fa-home"></i></a></li>
+                    <li class="nav-item mr-2"><a class="nav-link" href="#input-section"><i class="fas fa-rocket"></i></a></li>
+                    <li class="nav-item mr-2"><a class="nav-link" href="#calendar-section"><i class="fas fa-calendar-alt"></i></a></li>
                     
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -35,8 +36,10 @@
         </nav>
     </header>
 
-    <section id="introduction" class="container-xl">
+    <section id="introduction">
+    <div class="container-xl">
         <h1><em>Say goodbye to procrastination! Create a personal reading plan for any book. View, print or export your schedule to Google Calendar.</em></h1>
+    </div>
     </section>
     
 	<!-- input -->
@@ -68,7 +71,8 @@
             </div>
             <div class="col-12 col-sm-5">
   			    <label id="inputMethod">Number of pages</label><br>
-			    <input type="number" name="title" id="goal" placeholder="10">
+			    <input type="number" name="title" id="goalPg" class="visOn" placeholder="10">
+                <input type="date" name="title" id="goalDt" class="visOff">
             </div>
 
 		
