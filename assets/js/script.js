@@ -42,6 +42,14 @@ $(document).ready(function() {
         delay.countPages();
     });
 
+    $('#eventTime').on('input', function() {
+        savedData.books[savedData.currentBook].readingTime = $(this).val();
+    });
+
+    $('#eventLength').on('input', function() {
+        savedData.books[savedData.currentBook].readingDuration = $(this).val();        
+    });
+
     $('.dayCheck').click(function () {
         savedData.books[savedData.currentBook].weekdaySelected[$('.dayCheck').index(this)] = this.checked;
         $("#months").empty();
@@ -52,13 +60,36 @@ $(document).ready(function() {
         }
     });
 
+    $("#print-view").click(function() {
+
+        var printView = window.open("../../print.html", '_blank');
+        if (printView) {
+            //Browser has allowed it to be opened
+            printView.focus();
+            printView.document.write('<h3>dfldkfdf</h3>');
+            //printView.document.section.innerText = "yellow";
+
+
+
+            
+            
+            //let introduction = printView.document.getElementById("print-introduction");
+            //introduction.style.background = "yellow";
+
+
+        } else {
+            //Browser has blocked it
+            alert("Please disable the popup blocker in the browser settings.");
+        }
+    });
+
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
-    let initialBook = new UserInput(today, "Example", 500, 10, null, [true,true,true,true,true,true,true], today.getTime(), 30, "pages", null);
+    let initialBook = new UserInput(today, "Example", 500, 10, null, [true,true,true,true,true,true,true], "22:00", 60, "pages", null, []);
     savedData.add(initialBook);
 });
 
-function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekdaySelected, readingTime, readingDuration, goalType, endDate) {
+function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekdaySelected, readingTime, readingDuration, goalType, endDate, readingDates) {
 	this.startDate = startDate; //today's date when the object is created
 	this.bookTitle = bookTitle;
     this.totalPages = totalPages;
@@ -69,6 +100,7 @@ function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekda
     this.readingDuration = readingDuration;
     this.goalType = goalType;
     this.endDate = endDate;
+    this.readingDates = readingDates; // Array with dates, used for export to Google calendar
 }
 
 let savedData = {
@@ -162,6 +194,7 @@ function drawCalendar(days) {
     let dateAdder = new Date();
     let loopCounter = 0;
     let monthLooper = 0;
+    savedData.books[savedData.currentBook].readingDates = [];
     while (loopCounter < days) {
 		dateAdder.setDate(1);
 		dateAdder.setMonth(today.getMonth() + monthLooper);
@@ -201,6 +234,9 @@ function drawCalendar(days) {
                         if (today <= dateAdder && savedData.books[savedData.currentBook].weekdaySelected[dateAdder.getDay()]) { // check that countdown starts today && if the weekday is selected
                             if (loopCounter < days) {
                                 td.classList.add("cell-marked");
+                                readDate = new Date(dateAdder);
+                                savedData.books[savedData.currentBook].readingDates.push(readDate);
+                                
                             }
                             loopCounter +=1;
                             
@@ -222,11 +258,10 @@ function drawCalendar(days) {
   	    el.appendChild(calendarMonthBg)
         dateAdder = new Date();
         monthLooper +=1;
-	}
+    }
 }
 
 function updateSummary() {
-
     let goalSplit = savedData.books[savedData.currentBook].endDate.split("-");
     $("#summary").text(`You will be finished reading "${
     savedData.books[savedData.currentBook].bookTitle}" on ${
