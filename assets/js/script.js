@@ -61,26 +61,7 @@ $(document).ready(function() {
     });
 
     $("#print-view").click(function() {
-
-        var printView = window.open("../../print.html", '_blank');
-        if (printView) {
-            //Browser has allowed it to be opened
-            printView.focus();
-            printView.document.write('<h3>dfldkfdf</h3>');
-            //printView.document.section.innerText = "yellow";
-
-
-
-            
-            
-            //let introduction = printView.document.getElementById("print-introduction");
-            //introduction.style.background = "yellow";
-
-
-        } else {
-            //Browser has blocked it
-            alert("Please disable the popup blocker in the browser settings.");
-        }
+        openPopup();
     });
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
