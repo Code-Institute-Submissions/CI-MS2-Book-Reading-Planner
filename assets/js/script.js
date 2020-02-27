@@ -62,6 +62,13 @@ $(document).ready(function() {
     let today = new Date();
     let initialBook = new UserInput(today, "Example", 500, 10, null, [true,true,true,true,true,true,true], "22:00", 60, "pages", null, []);
     savedData.add(initialBook);
+
+    
+    // parallax scroll effect for the background image in the input-section
+    $(window).scroll(function () {
+        $("#input-section").css("background-position","0 " + (($(this).scrollTop() / 2) - $(this).height() / 2) + "px");
+    });
+
 });
 
 function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekdaySelected, readingTime, readingDuration, goalType, endDate, readingDates) {

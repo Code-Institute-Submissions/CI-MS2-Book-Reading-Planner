@@ -104,12 +104,12 @@ section {
 /*------------------------------------------------------- Section: Input    */
 
 #input-section {
-    background-image: url("../images/bg-image.png");
+    background-image: url("../images/bg-image-edit.jpg");
     background-repeat: no-repeat;
 	background-size: cover;
     padding-top: 5px;
     padding-bottom: 5px;
-
+    background-clip: padding-box;
 }
 
 .input-wrapper {
