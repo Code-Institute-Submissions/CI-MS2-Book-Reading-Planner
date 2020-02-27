@@ -5,18 +5,21 @@ function openPopup() {
         //Browser allows popups
         let allDates = "";
         let allPages = "";
+        let allCheckboxes = "";
+        let allRemarks = "";
         let pages = savedData.books[savedData.currentBook].goalPages;
-        savedData.books[savedData.currentBook].readingDates.forEach(function (value, i) {
+        savedData.books[savedData.currentBook].readingDates.forEach(function (date, i) {
 
             let pagesRange = "";
             if (i == (savedData.books[savedData.currentBook].readingDates.length - 1)) {
                 pagesRange = "the last pages";
             } else {
-                pagesRange = `pages ${pages * i} - ${pages * i + pages - 1}`;
+                pagesRange = `${pages * i} - ${pages * i + pages - 1}`;
             }
-
-            allDates += String(value)+"<br>";
-            allPages += pagesRange + "<br>";
+            allDates += `${calendarLabels.weekDays[date.getDay()]}, ${calendarLabels.allMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} <br><hr>`;
+            allPages += pagesRange + "<br><hr>";
+            allCheckboxes += `<i class="far fa-square"></i><br><hr>`;
+            allRemarks += "<br><hr>";
         });
 
 
@@ -32,31 +35,38 @@ function openPopup() {
     <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/print-style.css">
     <title>iReadMore - Reading Plan</title>
 </head>
 <body>
-    <header>  
-        <div id="logo-print"><em>iReadMore</em></div>
+    <header class="container-xl">  
+        <div id="logo"><em>iReadMore</em></div>
     </header>
 
-    <section>
-    <div id="print-introduction">Reading plan for ${savedData.books[savedData.currentBook].bookTitle}</div>
+    <section class="container-xl">
+    <div id="print-introduction"><h1>Reading plan for ${savedData.books[savedData.currentBook].bookTitle}</h1></div>
     <div class="row">
-        <div class="col-6">
+        
+        <div class="col-3 col-padding">
             <h3>Date</h3>
             <hr>
             ${allDates}
         </div>
-        <div class="col-4">
+        <div class="col-2 col-padding">
             <h3>Pages</h3>
             <hr>
             ${allPages}
         </div>
-        <div class="col-2">
+        <div class="col-1 col-padding">
             <h3>Check</h3>
             <hr>
-            ${allPages}
+            ${allCheckboxes}
         </div>
+        <div class="col-6 col-padding">
+            <h3>Remarks</h3>
+            <hr>
+            ${allRemarks}
+        </div> 
     </div>
     </section>
     
