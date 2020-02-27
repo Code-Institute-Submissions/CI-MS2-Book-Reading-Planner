@@ -25,37 +25,37 @@ $(document).ready(function() {
 
     $('#totalPages').on('input', function() {
         savedData.books[savedData.currentBook].totalPages = $(this).val();
-        chooseDelay();
+        delay.count();
     });
 
     $('#goalPg').on('input', function() {
         savedData.books[savedData.currentBook].goalPages = $(this).val();
-        delay.countDays();
+        delay.count();
     });
 
     $('#goalDt').on('input', function() {
         savedData.books[savedData.currentBook].goalDate = $(this).val();
-        delay.countPages();
+        delay.count();
     });
 
     $('#eventTime').on('input', function() {
         savedData.books[savedData.currentBook].readingTime = $(this).val();
-        chooseDelay();
+        delay.count();
     });
 
     $('#eventLength').on('input', function() {
         savedData.books[savedData.currentBook].readingDuration = $(this).val();
-        chooseDelay();        
+        delay.count();        
     });
 
     $('.dayCheck').click(function () {
         savedData.books[savedData.currentBook].weekdaySelected[$('.dayCheck').index(this)] = this.checked;
         $("#months").empty();
-        chooseDelay();
+        delay.count();
     });
 
     $("#print-view").click(function() {
-        openPopup();
+        openPopup();    // this function is in the file "print-schedule.js"
     });
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
@@ -91,30 +91,19 @@ let calendarLabels = {
 	allMonths: ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"]
 }
 
-function chooseDelay() {
-    if (savedData.books[savedData.currentBook].goalType == "pages") {
-        delay.countDays();
-    } else {
-        delay.countPages();
-    }
-}
-
 let delay = {
     timer: setTimeout(function() {
         countDays();
     }, 100),
-    countDays: function() {
+    count: function() {
         clearTimeout(this.timer);
         this.timer = setTimeout(function() {
             $("#months").empty();
-            countDays();
-        }, 500);
-    },
-    countPages: function() {
-        clearTimeout(this.timer);
-        this.timer = setTimeout(function() {
-            $("#months").empty();
-            countPages();
+            if (savedData.books[savedData.currentBook].goalType == "pages") {
+                countDays();
+            } else {
+                countPages();
+            }
         }, 500);
     }
 }
