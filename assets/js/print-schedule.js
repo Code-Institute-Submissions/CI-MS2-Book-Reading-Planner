@@ -14,6 +14,7 @@ function openPopup() {
             if (i == (savedData.books[savedData.currentBook].readingDates.length - 1)) {
                 pagesRange = "the last pages";
             } else {
+                //check with pages 1000 and pages to read 35, then go to print view. -until pages is wrong.
                 pagesRange = `${pages * i} - ${pages * i + pages - 1}`;
             }
             allDates += `${calendarLabels.weekDays[date.getDay()]}, ${calendarLabels.allMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} <br><hr>`;
