@@ -25,11 +25,7 @@ $(document).ready(function() {
 
     $('#totalPages').on('input', function() {
         savedData.books[savedData.currentBook].totalPages = $(this).val();
-        if (savedData.books[savedData.currentBook].goalType == "pages") {
-            delay.countDays();
-        } else {
-            delay.countPages();
-        }
+        chooseDelay();
     });
 
     $('#goalPg').on('input', function() {
@@ -44,20 +40,18 @@ $(document).ready(function() {
 
     $('#eventTime').on('input', function() {
         savedData.books[savedData.currentBook].readingTime = $(this).val();
+        chooseDelay();
     });
 
     $('#eventLength').on('input', function() {
-        savedData.books[savedData.currentBook].readingDuration = $(this).val();        
+        savedData.books[savedData.currentBook].readingDuration = $(this).val();
+        chooseDelay();        
     });
 
     $('.dayCheck').click(function () {
         savedData.books[savedData.currentBook].weekdaySelected[$('.dayCheck').index(this)] = this.checked;
         $("#months").empty();
-        if (savedData.books[savedData.currentBook].goalType == "pages") {
-            delay.countDays();
-        } else {
-            delay.countPages();
-        }
+        chooseDelay();
     });
 
     $("#print-view").click(function() {
@@ -66,7 +60,7 @@ $(document).ready(function() {
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
-    let initialBook = new UserInput(today, "Example", 500, 10, null, [true,true,true,true,true,true,true], "22:00", 60, "pages", null, []);
+    let initialBook = new UserInput(today, "Example", 500, 10, null, [true,true,true,true,true,true,true], "20:00", 60, "pages", null, []);
     savedData.add(initialBook);
 });
 
@@ -95,6 +89,14 @@ let savedData = {
 let calendarLabels = {
     weekDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
 	allMonths: ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"]
+}
+
+function chooseDelay() {
+    if (savedData.books[savedData.currentBook].goalType == "pages") {
+        delay.countDays();
+    } else {
+        delay.countPages();
+    }
 }
 
 let delay = {
@@ -172,7 +174,7 @@ function countPages() {
 function drawCalendar(days) {
 	let el = document.getElementById("months");
 	let today = new Date();
-    let dateAdder = new Date();
+    let dateAdder = resetDate();
     let loopCounter = 0;
     let monthLooper = 0;
     savedData.books[savedData.currentBook].readingDates = [];
@@ -217,15 +219,12 @@ function drawCalendar(days) {
                                 td.classList.add("cell-marked");
                                 readDate = new Date(dateAdder);
                                 savedData.books[savedData.currentBook].readingDates.push(readDate);
-                                
                             }
                             loopCounter +=1;
                             
                             if (loopCounter == days) {
-                                 savedData.books[savedData.currentBook].endDate = `${dateAdder.getFullYear()}-${dateAdder.getMonth()}-${dateAdder.getDate()}`;
-                                //savedData.books[savedData.currentBook].goalDate = dateAdder; --> Saving it as adate instead of a string
-                                updateSummary();
-                                
+                                savedData.books[savedData.currentBook].endDate = `${dateAdder.getFullYear()}-${dateAdder.getMonth()}-${dateAdder.getDate()}`;
+                                updateSummary(); 
                             }
                         }              
 				    }
@@ -237,9 +236,16 @@ function drawCalendar(days) {
   	    tbl.appendChild(tbdy);
   	    calendarMonthBg.appendChild(tbl)
   	    el.appendChild(calendarMonthBg)
-        dateAdder = new Date();
+        dateAdder = resetDate();
         monthLooper +=1;
     }
+}
+
+function resetDate() {
+    let dateAdder = new Date();
+    let timeSplit = savedData.books[savedData.currentBook].readingTime.split(":");
+    dateAdder.setHours(timeSplit[0], timeSplit[1], 0);
+    return dateAdder;
 }
 
 function updateSummary() {
