@@ -54,6 +54,7 @@ p {
     color: #fff;
     letter-spacing: 3px;
     padding-left: 15px;
+    text-decoration: none;
 }
 
 header i {
@@ -63,23 +64,18 @@ header i {
 }
 
 .navbar {
-    /*background-color: rgba(196,187,175,0.9);*/
-    
-    background-image: linear-gradient(to right, #3d0101, #bc2615);
+    background-color: rgba(166,157,145,1);
 }
 
 .navbar-nav .nav-link {
     color: #fff;
 }
 
-
 .navbar-nav .active {
-    color: #ff3300;
+    color: #a7170e;
 }
 
-
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-    
     color: #99ccff;
 }
 
@@ -96,18 +92,18 @@ section {
     background-image: url("../images/bg-home.jpg");
     background-size: cover;
     background-position: center top;
-    
 }
 
 #introduction h3 {
     text-align: left;
 }
 
-.jumbotron-wrapper img {
-    height: 70vh;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.introduction-text {
+    width: 30%;
+}
+
+.red-text {
+    color: #a7170e;
 }
 
 /*------------------------------------------------------- Section: Input    */
