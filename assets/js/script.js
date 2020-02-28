@@ -63,6 +63,10 @@ $(document).ready(function () {
         openPopup();    // this function is in the file "print-schedule.js"
     });
 
+    $("#export-google").click(function() {
+        $("#alertModal").modal();
+    });
+
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
     let initialBook = new UserInput(today, "Example", 500, 10, null, [true, true, true, true, true, true, true], "22:00", 60, "pages", null, []);
@@ -168,8 +172,12 @@ function countPages() {
 }
 
 function inputCheck(totalPages, goalPages) {
-    if ((totalPages + goalPages) - Math.floor(totalPages + goalPages) != 0) {
+    // make case statements and not if else
+    if ((totalPages) - Math.floor(totalPages) != 0) {
         $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
+        return false;
+    } else if ((goalPages) - Math.floor(goalPages) != 0) {
+        $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         return false;
     } else if (totalPages > 5000 || totalPages < 1) {
         $("#totalPages").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
