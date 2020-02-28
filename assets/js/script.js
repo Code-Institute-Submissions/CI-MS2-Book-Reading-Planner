@@ -25,6 +25,11 @@ $(document).ready(function () {
 
     $('#totalPages').on('input', function () {
         savedData.books[savedData.currentBook].totalPages = $(this).val();
+        //test
+        $(".popover-show").popover({
+            trigger: "focus"
+        })
+        //
         delay.count();
     });
 
@@ -63,12 +68,10 @@ $(document).ready(function () {
     let initialBook = new UserInput(today, "Example", 500, 10, null, [true, true, true, true, true, true, true], "22:00", 60, "pages", null, []);
     savedData.add(initialBook);
 
-
     // parallax scroll effect for the background image in the input-section
     $(window).scroll(function () {
         $("#input-section").css("background-position", "0 " + (($(this).scrollTop() / 2) - $(this).height() / 2) + "px");
     });
-
 });
 
 function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekdaySelected, readingTime, readingDuration, goalType, endDate, readingDates) {
@@ -132,7 +135,10 @@ function countPages() {
         let today = new Date();
         today.setHours(0, 0, 0, 0);
         if (goalDate < today) {
-            alert("Error! The date must not be in the past");
+            $("#goalDt").attr({"data-content": "The date cannot be in the past", "data-placement": "bottom"}).popover("show");
+            goalDate = today;
+        } else {
+            $("#goalDt").popover("hide");
         }
         const oneDay = 1000 * 60 * 60 * 24;
 
@@ -163,16 +169,18 @@ function countPages() {
 
 function inputCheck(totalPages, goalPages) {
     if ((totalPages + goalPages) - Math.floor(totalPages + goalPages) != 0) {
-        alert("Error! please enter integer number");
+
+        $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         return false;
-    } else if (totalPages > 5000 || goalPages > 5000) {
-        alert("Error! Don't enter more than 5000 pages");
+    } else if (totalPages > 5000 || totalPages < 1) {
+        $("#totalPages").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
         return false;
-    } else if (totalPages < 1 || goalPages < 1) {
-        alert("Error! Value must not be smaller than 1");
+    } else if (goalPages > 5000 || goalPages < 1) {
+        $("#goalPg").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
         return false;
     } else {
-        // dismiss any popups before returning
+        $("#totalPages").popover("hide");
+        $("#goalPg").popover("hide");
         return true;
     }
 }
