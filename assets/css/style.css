@@ -94,16 +94,8 @@ section {
     background-position: center top;
 }
 
-#introduction h3 {
-    text-align: left;
-}
-
 .introduction-text {
     width: 30%;
-}
-
-.red-text {
-    color: #a7170e;
 }
 
 /*------------------------------------------------------- Section: Input    */
@@ -250,6 +242,13 @@ td {
 
 .cell-outside {
     color: #fff;
+}
+
+.control-buttons {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    
 }
 
 /*------------------------------------------------------- Footer    */

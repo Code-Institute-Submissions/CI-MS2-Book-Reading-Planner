@@ -169,7 +169,6 @@ function countPages() {
 
 function inputCheck(totalPages, goalPages) {
     if ((totalPages + goalPages) - Math.floor(totalPages + goalPages) != 0) {
-
         $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         return false;
     } else if (totalPages > 5000 || totalPages < 1) {

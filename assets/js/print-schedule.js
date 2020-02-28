@@ -45,7 +45,7 @@ function openPopup() {
     </header>
 
     <section class="container-xl">
-    <div id="print-introduction"><h1><em>Reading plan for ${savedData.books[savedData.currentBook].bookTitle}</em></h1></div>
+    <div id="print-introduction"><h1>Reading plan for ${savedData.books[savedData.currentBook].bookTitle}</h1></div>
     <div class="row">
         
         <div class="col-3 col-padding">
