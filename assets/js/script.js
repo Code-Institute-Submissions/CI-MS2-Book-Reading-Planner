@@ -268,5 +268,5 @@ function updateSummary() {
         savedData.books[savedData.currentBook].bookTitle}" on ${
         calendarLabels.allMonths[goalSplit[1]]} ${goalSplit[2]}, ${
         goalSplit[0]}, reading ${
-        savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar.`);
+        savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar below.`);
 }
