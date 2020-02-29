@@ -24,17 +24,12 @@ $(document).ready(function () {
     });
 
     $('#totalPages').on('input', function () {
-        savedData.books[savedData.currentBook].totalPages = $(this).val();
-        //test
-        $(".popover-show").popover({
-            trigger: "focus"
-        })
-        //
+        savedData.books[savedData.currentBook].totalPages = Number($(this).val());
         delay.count();
     });
 
     $('#goalPg').on('input', function () {
-        savedData.books[savedData.currentBook].goalPages = $(this).val();
+        savedData.books[savedData.currentBook].goalPages = Number($(this).val());
         delay.count();
     });
 
@@ -178,24 +173,30 @@ function countPages() {
 }
 
 function inputCheck(totalPages, goalPages) {
-    // make case statements and not if else
+    returnValue = true;
+    $("#totalPages").popover("hide");
+    $("#goalPg").popover("hide");
     if ((totalPages) - Math.floor(totalPages) != 0) {
         $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
-        return false;
-    } else if ((goalPages) - Math.floor(goalPages) != 0) {
-        $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
-        return false;
-    } else if (totalPages > 5000 || totalPages < 1) {
-        $("#totalPages").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
-        return false;
-    } else if (goalPages > 5000 || goalPages < 1) {
-        $("#goalPg").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
-        return false;
-    } else {
-        $("#totalPages").popover("hide");
-        $("#goalPg").popover("hide");
-        return true;
+        returnValue = false;
     }
+    if ((goalPages) - Math.floor(goalPages) != 0) {
+        $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (totalPages > 5000 || totalPages < 1) {
+        $("#totalPages").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (goalPages > 5000 || goalPages < 1) {
+        $("#goalPg").attr({"data-content": `Enter a number between 1 and ${totalPages}`, "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (goalPages > totalPages) {
+        $("#goalPg").attr({"data-content": "Your goal is higher than the total number of pages", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    return returnValue;
 }
 
 function drawCalendar(days) {
