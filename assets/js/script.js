@@ -65,6 +65,12 @@ $(document).ready(function () {
 
     $("#export-google").click(function() {
         $("#alertModal").modal();
+        let eventsNumber = savedData.books[savedData.currentBook].readingDates.length;
+        if (eventsNumber > 1) {
+            $("#events-warning").text(`${eventsNumber} events`);
+        } else {
+            $("#events-warning").text("one event");
+        }
     });
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
