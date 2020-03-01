@@ -70,7 +70,7 @@ $(document).ready(function () {
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
-    let initialBook = new UserInput(today, "Example", 120, 25, null, [true, true, true, true, true, true, true], "21:00", 60, "pages", null, []);
+    let initialBook = new UserInput(today, "Example", 120, 25, null, [true, true, true, true, true, true, true], "20:00", 60, "pages", null, []);
     savedData.add(initialBook);
 
     // parallax scroll effect for the background image in the input-section

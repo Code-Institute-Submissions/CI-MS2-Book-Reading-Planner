@@ -324,4 +324,10 @@ footer > p {
     #introduction {
         background-position: center 20px;
     }
+
+    footer {
+	    text-align: left;
+        height: 40px;
+        padding-left: 5px;
+    }
 }
