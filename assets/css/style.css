@@ -20,8 +20,9 @@ h1 {
 	text-align: left;
 	display: block;
     color: #000;
-    margin-bottom: 1em;
-    margin-top: 1em;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    text-shadow: 0 0 3px #fff;
 }
 
 h2 {
@@ -92,6 +93,8 @@ section {
     background-image: url("../images/bg-home.jpg");
     background-size: cover;
     background-position: center top;
+    background-repeat: no-repeat;
+
 }
 
 .introduction-text {
@@ -263,6 +266,7 @@ footer {
 
 footer > p {
     display: inline;
+    text-shadow: 0 0 3px #fff;
 }
 
 .social-icon {
@@ -280,4 +284,44 @@ footer > p {
 
 .modal-content {
     border-radius: 10px;
+}
+
+/*------------------------------------------------------- Media Queries   */
+
+@media screen and (max-width : 450px) {
+    #logo {
+        font-size: 1.8rem;
+        padding-left: 5px;
+    }
+
+    header i {
+       
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .hide-small {
+        display: none;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    h3 {
+	    font-weight: 300;
+    }
+
+    section {
+        border-top: 60px solid transparent;;
+        margin-top: -60px;
+        min-height: 100vh;
+    }
+}
+
+@media screen and (max-width : 885px) {
+    #introduction {
+        background-position: center 20px;
+    }
 }
