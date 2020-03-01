@@ -192,7 +192,7 @@ function inputCheck(totalPages, goalPages) {
         $("#goalPg").attr({"data-content": `Enter a number between 1 and ${totalPages}`, "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
-    if (goalPages > totalPages) {
+    if (goalPages > totalPages && $("#goalPg").is(":focus")) {
         $("#goalPg").attr({"data-content": "Your goal is higher than the total number of pages", "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
