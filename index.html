@@ -29,7 +29,7 @@
     <div class="container-xl">
         <h1>Say goodbye to procrastination!</h1>
         <div class="introduction-text">
-            <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.<br><br>Scroll down to continue or use the navigation-icons on top.</p>
+            <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.<br><br>Scroll down or use the navigation-icons on top to get started.</p>
         </div>
     </div>
     </section>
@@ -96,18 +96,16 @@
 		    <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
             <p id="warningDescrepency" class="visOff">Please note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.</p>
             <div class="control-buttons">
-		    <input id="print-view" type="button" value="Print view" class="btn" />
-		    <input id="export-google" type="button" value="Export to Google Calendar" class="btn" />
-            <input id="signout-google" type="button" value="Signout from Google" class="btn" />
+		        <input id="print-view" type="button" value="Print view" class="btn" />
+		        <input id="export-google" type="button" value="Export to Google Calendar" class="btn" />
+                <input id="signout-google" type="button" value="Signout from Google" class="btn" />
             </div>
-	    </div>
-        
-        <!-- used to test google API -->
-        <div id="content">  
-        </div>
-		
+            <div class="export-progress">
+                <p>Status: <span id="export-status">Exporting events... 0 %</span></p>
+            </div>
+	    </div>	
 	    <div class="input-wrapper" id="months">
-		    <!-- the schedule appears here, entirely in JS -->
+		    <!-- the calendar appears here, generated in script.js -->
 	    </div>	
     </section>
 
@@ -132,10 +130,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/print-schedule.js"></script>
-    <!--
     <script src="assets/js/export-schedule.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    -->
 
 </body>
 </html>

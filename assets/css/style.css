@@ -185,7 +185,6 @@ input[type=radio] {
     display: none;
 }
 
-
 /*------------------------------------------------------- Section calendar    */
 
 #calendar-section .input-wrapper {
@@ -251,14 +250,6 @@ td {
     margin-left: auto;
 }
 
-.modal-content hr {
-    display: none;
-}
-
-.modal-content {
-    border-radius: 10px;
-}
-
 /*------------------------------------------------------- Footer    */
 
 footer {
@@ -283,4 +274,10 @@ footer > p {
     color: #fff;
     margin-top: 10px;
     padding-top: 3px;
+}
+
+/*------------------------------------------------------- Modal view (export warning)   */
+
+.modal-content {
+    border-radius: 10px;
 }

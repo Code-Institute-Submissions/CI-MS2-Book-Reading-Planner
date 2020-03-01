@@ -38,7 +38,7 @@ function initClient() {
         exportButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
+        alert(`Sorry, an error occured when trying to connect to the Google API: \n${JSON.stringify(error, null, 2)}`);
     });
 }
 
@@ -57,30 +57,14 @@ function updateSigninStatus(isSignedIn) {
     }
 }
 
-/**
- *  Sign in the user upon button click.
- */
+// sign in user after button click
 function handleAuthClick(event) {
     gapi.auth2.getAuthInstance().signIn();
 }
 
-/**
- *  Sign out the user upon button click.
- */
+// sign out after button click
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-}
-
-/**
- * Append a pre element to the body containing the given message
- * as its text node. Used to display the results of the API call.
- *
- * @param {string} message Text to be placed in pre element.
- */
-function appendPre(message) {
-    var pre = document.getElementById('content');
-    var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
 }
 
 function Event(summary, start, end) {
@@ -91,7 +75,8 @@ function Event(summary, start, end) {
 
 function saveEvents() {
     let pages = savedData.books[savedData.currentBook].goalPages;
-    savedData.books[savedData.currentBook].readingDates.forEach(function (value, i) {
+    let datesArray = savedData.books[savedData.currentBook].readingDates;
+    datesArray.forEach(function (value, i) {
 
         // set the start time and end time in the date object according to the user input:
         let timeSplit = savedData.books[savedData.currentBook].readingTime.split(":");
@@ -99,26 +84,27 @@ function saveEvents() {
         var endDate = new Date(value.getTime() + savedData.books[savedData.currentBook].readingDuration*60000);
 
         let pagesRange = "";
-        if(i == (savedData.books[savedData.currentBook].readingDates.length - 1)) {
+        if(i == (datesArray.length - 1)) {
             pagesRange = "the last pages";
+            $("#export-status").text(`Export complete`)
         } else {
             pagesRange = `pages ${pages * i} - ${pages * i + pages - 1}`;
+            $("#export-status").text(`Exporting events... ${100 / datesArray.length * (i + 1)} %`)
         }
-
         let event = new Event(
             `Read ${pagesRange} of '${savedData.books[savedData.currentBook].bookTitle}'`,
             {"dateTime": value.toISOString()},
             {"dateTime": endDate.toISOString()} // add minutes
         )
-
         var request = gapi.client.calendar.events.insert({
-            'calendarId': 'primary',
-            'resource': event
+            "calendarId": "primary",
+            "resource": event
         });
-
+        /*
         request.execute(function(event) {
             appendPre('Event created: ' + event.htmlLink);
-
         });
+        */
+        
     });
 }
