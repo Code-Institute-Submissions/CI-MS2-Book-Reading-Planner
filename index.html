@@ -29,7 +29,7 @@
     <div class="container-xl">
         <h1>Say goodbye to procrastination!</h1>
         <div class="introduction-text">
-            <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.<br><br>Scroll down or use the navigation-icons on top to get started.</p>
+            <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.<span class="hide-small"><br><br>Scroll down or use the navigation-icons on top to get started.</span></p>
         </div>
     </div>
     </section>
@@ -100,8 +100,8 @@
 		        <input id="export-google" type="button" value="Export to Google Calendar" class="btn" />
                 <input id="signout-google" type="button" value="Signout from Google" class="btn" />
             </div>
-            <div class="export-progress">
-                <p class="visOff">Status: <span id="export-status">Exporting events... 0 %</span></p>
+            <div id="export-progress" class="visOff">
+                <p>Status: <span id="export-status">Exporting events... 0 %</span></p>
             </div>
 	    </div>	
 	    <div class="input-wrapper" id="months">
@@ -117,7 +117,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Export to Google Calendar</h5><br>
                     <p>iReadMore will create <span id="events-warning"></span> in your Google Calendar. Please confirm by clicking 'OK'.</p>
                     <br>
-                    <p>The app is not yet verified. After the following Google login, click on 'Advanced - Go to c-ronics.com' to proceed.</p><br>
+                    <p id="verify-message" class="visOn">The app is not yet verified. After the following Google login, click on 'Advanced - Go to c-ronics.com' to proceed.</p><br>
                     <button type="button" class="btn" data-dismiss="modal">Cancel</button>
                     <button id="goahead-google" type="button" class="btn" data-dismiss="modal">OK</button>
                 </div>

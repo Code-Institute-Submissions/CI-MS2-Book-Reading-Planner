@@ -9,7 +9,6 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
 var goaheadButton = document.getElementById('goahead-google');
-//var exportButton = document.getElementById("export-google")
 var signoutButton = document.getElementById('signout-google');
 var goAheadButtonClicked = false;
 
@@ -57,7 +56,8 @@ function handleAuthClick(event) {
     if (goAheadButtonClicked === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();
-        // set class of second paragraph in dialog to invisible
+        $("#verify-message").removeClass("visOn").addClass("visOff");
+        $("#export-progress").removeClass("visOff").addClass("visOn");
     } else {
         saveEvents();
     }
@@ -67,7 +67,8 @@ function handleAuthClick(event) {
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     goAheadButtonClicked = false;
-    // set class of second paragraph in dialog to visible
+    $("#verify-message").removeClass("visOff").addClass("visOn");
+    $("#export-status").text(`Signed out from Google`)
 }
 
 function Event(summary, start, end) {
