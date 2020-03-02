@@ -31,7 +31,7 @@ h2 {
 	font-size: 1.2rem;
 	color: #A69D91;
 	text-shadow: 0 0 2px black;
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 h3 {
@@ -192,6 +192,7 @@ input[type=radio] {
 
 #calendar-section .input-wrapper {
     background-color: rgba(0,0,0,0.1);
+    
 }
 
 .btn {
@@ -218,11 +219,10 @@ hr {
 .calendar-bg {
 	width: 350px;
 	display: inline-block;
-	
 }
 
 .calendar-month {
-	width: 315px;
+	max-width: 315px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 20px;
@@ -248,7 +248,7 @@ td {
 }
 
 .control-buttons {
-    width: 500px;
+    max-width: 500px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -288,6 +288,27 @@ footer > p {
 
 /*------------------------------------------------------- Media Queries   */
 
+@media screen and (max-width : 885px) {
+    #introduction {
+        background-position: center 20px;
+    }
+
+    footer {
+	    text-align: left;
+        height: 40px;
+        padding-left: 5px;
+    }
+}
+
+@media screen and (max-width : 766px) {
+    #calendar-section .input-wrapper {
+        text-align: center;
+    }
+    h2 {
+        margin-top: 1.5rem;
+    }
+}
+
 @media screen and (max-width : 450px) {
     #logo {
         font-size: 1.8rem;
@@ -295,9 +316,16 @@ footer > p {
     }
 
     header i {
-       
         margin-left: 10px;
         text-align: center;
+    }
+    .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+        color: #fff;
+    }
+
+    .btn:hover {
+        background-color: #333;
+        color: #fff;
     }
 
     .hide-small {
@@ -318,16 +346,23 @@ footer > p {
         margin-top: -60px;
         min-height: 100vh;
     }
-}
 
-@media screen and (max-width : 885px) {
-    #introduction {
-        background-position: center 20px;
+    /* calendar section */
+
+    td {
+        width: 37px;
+        height: 37px;
     }
 
-    footer {
-	    text-align: left;
-        height: 40px;
-        padding-left: 5px;
+    .calendar-month {
+	    width: 259px;
+	  
+    }
+    .calendar-bg {
+	    width: 259px;
+    }
+
+    hr {
+        width: 259px;
     }
 }
