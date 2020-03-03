@@ -44,7 +44,7 @@ $(document).ready(function () {
     });
 
     $('#eventLength').on('input', function () {
-        savedData.books[savedData.currentBook].readingDuration = $(this).val();
+        savedData.books[savedData.currentBook].readingDuration = Number($(this).val());
         delay.count();
     });
 
@@ -163,7 +163,7 @@ function countPages() {
         roundedNumber = Math.ceil(numberOfPages);
         savedData.books[savedData.currentBook].goalPages = roundedNumber;
 
-        // ********** subtracting days when reading 0.x pages per day more
+        // ********** subtracting days when reading 0.n pages per day more
         discrepance = Math.round((1 - (numberOfPages - Math.floor(numberOfPages))) * result)
         if (discrepance > roundedNumber) {
             result -= Math.floor(Math.floor(discrepance) / roundedNumber);
@@ -176,11 +176,12 @@ function inputCheck(totalPages, goalPages) {
     returnValue = true;
     $("#totalPages").popover("hide");
     $("#goalPg").popover("hide");
-    if ((totalPages) - Math.floor(totalPages) != 0) {
+    $("#eventLength").popover("hide");
+    if (totalPages - Math.floor(totalPages) != 0) {
         $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
-    if ((goalPages) - Math.floor(goalPages) != 0) {
+    if (goalPages - Math.floor(goalPages) != 0) {
         $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
@@ -194,6 +195,21 @@ function inputCheck(totalPages, goalPages) {
     }
     if (goalPages > totalPages && $("#goalPg").is(":focus")) {
         $("#goalPg").attr({"data-content": "Your goal is higher than the total number of pages", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    let length = savedData.books[savedData.currentBook].readingDuration;
+    if (length > 360 || length < 10) {
+        $("#eventLength").attr({"data-content": "Enter a number between 10 and 360", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (length - Math.floor(length) != 0) {
+        $("#eventLength").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    let dayChecked = $("input[type=checkbox]:checked").length;
+    if(!dayChecked) {
+        $("#summary").text("You need to select at least one weekday")
+        savedData.books[savedData.currentBook].readingDates = [];
         returnValue = false;
     }
     return returnValue;
