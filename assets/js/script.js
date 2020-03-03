@@ -156,7 +156,7 @@ function countPages() {
         const differenceMs = Math.abs(goalDate - today);
 
         // Convert back to number of days
-        let totalDays = Math.round(differenceMs / oneDay) + 1; //+1 because start and end date counts
+        let totalDays = Math.round(differenceMs / oneDay); //+1 because start and end date counts
         let result = 0;
         for (let i = 0; i < totalDays; i++) {
             if (savedData.books[savedData.currentBook].weekdaySelected[today.getDay()]) {
