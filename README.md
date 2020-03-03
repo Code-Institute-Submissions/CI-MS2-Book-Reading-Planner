@@ -55,7 +55,7 @@ Subtile footer.
 
 - Show a calendar with marked dates according to the given input. The plan adjusts dynamically when the user changes values (as described under "Scope")
 - Two possible reading goals: Either with a finish date, or a number of pages to read at once. The goal changes when selecting the according radio button with its option
-- Output options: Print View of the reading schedule or Export to Google Calendar. The user can select one of the 2 buttons above the calendar. When Choosing the Google Calendar Export, the user will be prompted to the Google Login.
+- Output options: Print View of the reading schedule (/assets/js/print-schedule.js) or Export to Google Calendar (/assets/js/export-schedule.js). The user can select one of the 2 buttons above the calendar. When Choosing the Google Calendar Export, the user will be prompted to the Google Login.
 - Responsive design
 
 ### Planned Features
@@ -85,7 +85,7 @@ Subtile footer.
 ***
 ## Testing
 
-I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [Manual Testing](https://c-ronics.com/course/iReadMore-testing.xls).
+I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](https://c-ronics.com/course/iReadMore-testing.xls).
 
 ***
 ## Deployment
