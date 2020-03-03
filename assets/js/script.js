@@ -144,6 +144,7 @@ function countPages() {
         let goalDate = new Date(goalSplit[0], goalSplit[1] - 1, goalSplit[2]);
         let today = new Date();
         today.setHours(0, 0, 0, 0);
+        console.log(today);
         if (goalDate < today) {
             $("#goalDt").attr({"data-content": "The date cannot be in the past", "data-placement": "bottom"}).popover("show");
             goalDate = today;
@@ -156,7 +157,7 @@ function countPages() {
         const differenceMs = Math.abs(goalDate - today);
 
         // Convert back to number of days
-        let totalDays = Math.round(differenceMs / oneDay); //+1 because start and end date counts
+        let totalDays = Math.round(differenceMs / oneDay) + 1; //+1 because start and end date counts
         let result = 0;
         for (let i = 0; i < totalDays; i++) {
             if (savedData.books[savedData.currentBook].weekdaySelected[today.getDay()]) {
@@ -223,6 +224,8 @@ function inputCheck(totalPages, goalPages) {
 function drawCalendar(days) {
     let el = document.getElementById("months");
     let today = new Date();
+    let timeSplit = savedData.books[savedData.currentBook].readingTime.split(":");
+    today.setHours(timeSplit[0], timeSplit[1], 0);
     let dateAdder = resetDate();
     let loopCounter = 0;
     let monthLooper = 0;
