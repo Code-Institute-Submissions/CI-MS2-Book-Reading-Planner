@@ -85,7 +85,7 @@ Subtile footer.
 ***
 ## Testing
 
-I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [Manual Testing](https://c-ronics.com/iReadMore/manual-testing.pdf)
+I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [Manual Testing](https://c-ronics.com/course/iReadMore-testing.xls).
 
 ***
 ## Deployment
