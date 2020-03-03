@@ -19,8 +19,13 @@ $(document).ready(function () {
     });
 
     $('#bookTitle').on('input', function () {
-        savedData.books[savedData.currentBook].bookTitle = $(this).val();
-        updateSummary();
+        $("#bookTitle").popover("hide");
+        if ($(this).val().length > 40) {
+            $("#bookTitle").attr({"data-content": "Enter 1 - 40 characters", "data-placement": "bottom"}).popover("show");
+        } else {
+            savedData.books[savedData.currentBook].bookTitle = $(this).val();
+            updateSummary();
+        }
     });
 
     $('#totalPages').on('input', function () {
@@ -177,20 +182,20 @@ function inputCheck(totalPages, goalPages) {
     $("#totalPages").popover("hide");
     $("#goalPg").popover("hide");
     $("#eventLength").popover("hide");
-    if (totalPages - Math.floor(totalPages) != 0) {
-        $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
-        returnValue = false;
-    }
-    if (goalPages - Math.floor(goalPages) != 0) {
-        $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
-        returnValue = false;
-    }
     if (totalPages > 5000 || totalPages < 1) {
         $("#totalPages").attr({"data-content": "Enter a number between 1 and 5000", "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
     if (goalPages > 5000 || goalPages < 1) {
         $("#goalPg").attr({"data-content": `Enter a number between 1 and ${totalPages}`, "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (totalPages - Math.floor(totalPages) != 0) {
+        $("#totalPages").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
+        returnValue = false;
+    }
+    if (goalPages - Math.floor(goalPages) != 0) {
+        $("#goalPg").attr({"data-content": "Enter an integer number", "data-placement": "bottom"}).popover("show");
         returnValue = false;
     }
     if (goalPages > totalPages && $("#goalPg").is(":focus")) {
