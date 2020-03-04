@@ -80,7 +80,11 @@ $(document).ready(function () {
 
     // parallax scroll effect for the background image in the input-section
     $(window).scroll(function () {
-        $("#input-section").css("background-position", "0 " + (($(this).scrollTop() / 2) - $(this).height() / 2) + "px");
+        
+        console.log($("#input-section").position().top);
+        console.log("This ", $(this).scrollTop());
+        //$("#input-section").css("background-position", "0 " + (($(this).scrollTop() / 2) - $(this).height() / 2) + "px");
+        $("#input-section").css("background-position", "0 " + (($(this).scrollTop()/2) - $("#input-section").position().top) + "px");
     });
 });
 
@@ -144,7 +148,6 @@ function countPages() {
         let goalDate = new Date(goalSplit[0], goalSplit[1] - 1, goalSplit[2]);
         let today = new Date();
         today.setHours(0, 0, 0, 0);
-        console.log(today);
         if (goalDate < today) {
             $("#goalDt").attr({"data-content": "The date cannot be in the past", "data-placement": "bottom"}).popover("show");
             goalDate = today;
