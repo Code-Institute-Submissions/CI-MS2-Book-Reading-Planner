@@ -59,8 +59,12 @@ $(document).ready(function () {
         delay.count();
     });
 
-    $("#print-view").click(function () {
-        openPopup();    // this function is in the file "print-schedule.js"
+    $("#btn-print").click(function () {
+        $("#input-section, #introduction, #months, footer, #print-title").hide();
+        $("#print-introduction").show();
+        window.print();
+        $("#input-section, #introduction, #months, footer, #print-title").show();
+        $("#print-introduction").hide();
     });
 
     $("#export-google").click(function() {
@@ -288,21 +292,20 @@ function drawCalendar(days) {
 
     // ---------------------------- Generate print schedule
     let pages = savedData.books[savedData.currentBook].goalPages;
-    $("#print-summary").html(`Book: ${savedData.books[savedData.currentBook].bookTitle}`);
     $("#print-table").empty();
     savedData.books[savedData.currentBook].readingDates.forEach(function (date, i) {
         let pagesRange = "";
         if (i == (savedData.books[savedData.currentBook].readingDates.length - 1)) {
-            pagesRange = "the last pages";
+            pagesRange = "Last pages";
         } else {
             pagesRange = `${pages * i} - ${pages * i + pages - 1}`;
         }
         $("#print-table").append(`
         <div class="row">
-            <div class="col-6 col-md-3 col-padding">
+            <div class="col-8 col-md-3 col-padding">
                 ${calendarLabels.weekDays[date.getDay()]}, ${calendarLabels.allMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}<br><hr>
             </div>
-            <div class="col-6 col-md-2 col-padding">
+            <div class="col-4 col-md-2 col-padding">
                 ${pagesRange}<br><hr>
             </div>
             <div class="d-none d-sm-block col-md-1 col-padding">
@@ -330,4 +333,5 @@ function updateSummary() {
         calendarLabels.allMonths[goalSplit[1]]} ${goalSplit[2]}, ${
         goalSplit[0]}, reading ${
         savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar below.`);
+    $("#print-summary").html(`Reading Plan "${savedData.books[savedData.currentBook].bookTitle}"`);
 }

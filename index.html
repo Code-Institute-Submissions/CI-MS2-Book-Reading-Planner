@@ -84,49 +84,49 @@
         </form>
     </div>
 	</section>
-    <section id="calendar-section" class="container-xl">	
-	    <h1>Your Reading Plan:</h1>
-	    <div class="input-wrapper">
-		    <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
+    <section id="calendar-section" class="container-xl">
+    <div id="summary-title">	
+	    <h2><i class="fas fa-user"></i>Your reading plan</h2>
+        <input id="export-google" type="button" value="Export to Google" class="btn" />
+        <input id="signout-google" type="button" value="Signout from Google" class="btn" />
+        </div>
+	    <div class="input-wrapper" id="months">
+            <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
             <p id="warningDescrepency" class="visOff">Please note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.</p>
-            <div class="control-buttons">
-		        <input id="print-view" type="button" value="Print View" class="btn" />
-		        <input id="export-google" type="button" value="Export to Google Calendar" class="btn" />
-                <input id="signout-google" type="button" value="Signout from Google" class="btn" />
-            </div>
             <div id="export-progress" class="visOff">
                 <p>Status: <span id="export-status">Exporting events... 0 %</span></p>
             </div>
-	    </div>	
-	    <div class="input-wrapper" id="months">
 		    <!-- the calendar appears here, generated in script.js -->
 	    </div>
-        <div class="print-schedule">
-        <h1>Reading Plan for printing</h1>
-        <div id="print-introduction">
-            <span class="logo"><em>iReadMore</em></span><span id="print-summary"></span>
+        <div id="print-title">
+            <h2><i class="fas fa-print"></i>Details for printing</h2>
+            <input id="btn-print" type="button" value="Print" class="btn" />
         </div>
-        <div class="row">
-            <div class="col-6 col-md-3 col-padding">
-                <h3>Date</h3>
-                <hr>
+        <div id="print-schedule" class="input-wrapper">
+            <div id="print-introduction">
+                <span class="logo"><em>iReadMore</em></span><span id="print-summary"></span>
             </div>
-            <div class="col-6 col-md-2 col-padding">
-                <h3>Pages</h3>
-                <hr>
+            <div class="row">
+                <div class="col-8 col-md-3 col-padding">
+                    <h3>Date</h3>
+                    <hr>
+                </div>
+                <div class="col-4 col-md-2 col-padding">
+                    <h3>Pages</h3>
+                    <hr>
+                </div>
+                <div class="d-none d-sm-block col-md-1 col-padding">
+                    <h3>Check</h3>
+                    <hr>
+                </div>
+                <div class="d-none d-sm-block col-md-6 col-padding">
+                    <h3>Remarks</h3>
+                    <hr>
+                </div> 
             </div>
-            <div class="d-none d-sm-block col-md-1 col-padding">
-                <h3>Check</h3>
-                <hr>
+            <div id="print-table">
+                <!-- the print schedule appears here, generated in script.js -->
             </div>
-            <div class="d-none d-sm-block col-md-6 col-padding">
-                <h3>Remarks</h3>
-                <hr>
-            </div> 
-        </div>
-        <div id="print-table">
-            <!-- the print schedule appears here, generated in script.js -->
-        </div>
         </div>
     </section>
         <footer>
@@ -159,9 +159,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <!--
+    
     <script src="assets/js/export-schedule.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    -->
+    
 </body>
 </html>
