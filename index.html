@@ -15,7 +15,7 @@
     <header class="fixed-top">  
         <nav class="navbar navbar-expand">
             <div class="container-xl">
-                <a id="logo" href="#introduction"><em>iReadMore</em></a>
+                <a class="logo" href="#introduction"><em>iReadMore</em></a>
                 <ul class="navbar-nav ml-auto mr-2">
                     <li class="nav-item mr-2"><a class="nav-link" href="#introduction"><i class="fas fa-home"></i></a></li>
                     <li class="nav-item mr-2"><a class="nav-link" href="#input-section"><i class="fas fa-edit"></i></a></li>
@@ -100,7 +100,34 @@
 	    </div>	
 	    <div class="input-wrapper" id="months">
 		    <!-- the calendar appears here, generated in script.js -->
-	    </div>	
+	    </div>
+        <div class="print-schedule">
+        <h1>Reading Plan for printing</h1>
+        <div id="print-introduction">
+            <span class="logo"><em>iReadMore</em></span><span id="print-summary"></span>
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3 col-padding">
+                <h3>Date</h3>
+                <hr>
+            </div>
+            <div class="col-6 col-md-2 col-padding">
+                <h3>Pages</h3>
+                <hr>
+            </div>
+            <div class="d-none d-sm-block col-md-1 col-padding">
+                <h3>Check</h3>
+                <hr>
+            </div>
+            <div class="d-none d-sm-block col-md-6 col-padding">
+                <h3>Remarks</h3>
+                <hr>
+            </div> 
+        </div>
+        <div id="print-table">
+            <!-- the print schedule appears here, generated in script.js -->
+        </div>
+        </div>
     </section>
         <footer>
 		<p>&#169; 2020 Andreas Jost</p>
@@ -132,7 +159,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/print-schedule.js"></script>
     <!--
     <script src="assets/js/export-schedule.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>

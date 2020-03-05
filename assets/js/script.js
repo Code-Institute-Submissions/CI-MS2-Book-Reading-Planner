@@ -285,6 +285,35 @@ function drawCalendar(days) {
         dateAdder = resetDate();
         monthLooper += 1;
     }
+
+    // ---------------------------- Generate print schedule
+    let pages = savedData.books[savedData.currentBook].goalPages;
+    $("#print-summary").html(`Book: ${savedData.books[savedData.currentBook].bookTitle}`);
+    $("#print-table").empty();
+    savedData.books[savedData.currentBook].readingDates.forEach(function (date, i) {
+        let pagesRange = "";
+        if (i == (savedData.books[savedData.currentBook].readingDates.length - 1)) {
+            pagesRange = "the last pages";
+        } else {
+            pagesRange = `${pages * i} - ${pages * i + pages - 1}`;
+        }
+        $("#print-table").append(`
+        <div class="row">
+            <div class="col-6 col-md-3 col-padding">
+                ${calendarLabels.weekDays[date.getDay()]}, ${calendarLabels.allMonths[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}<br><hr>
+            </div>
+            <div class="col-6 col-md-2 col-padding">
+                ${pagesRange}<br><hr>
+            </div>
+            <div class="d-none d-sm-block col-md-1 col-padding">
+                <i class="far fa-square"></i><br><hr>
+            </div>
+            <div class="d-none d-sm-block col-md-6 col-padding">
+                <br><hr>
+            </div> 
+        </div>
+    `)
+    });	
 }
 
 function resetDate() {
