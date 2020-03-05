@@ -4,17 +4,17 @@ $(document).ready(function () {
     // ------------------------------------------------ reacting to user input:
     $("#outputAmount").click(function () {
         $("#inputMethod").text("Number of pages");
-        $("#goalPg").removeClass("visOff").addClass("visOn");
-        $("#goalDt").removeClass("visOn").addClass("visOff");
-        $("#warningDescrepency").removeClass("visOn").addClass("visOff");
+        $("#goalPg").show();
+        $("#goalDt").hide();
+        $("#status-display").text("");
         savedData.books[savedData.currentBook].goalType = "pages";
     });
 
     $("#outputWhen").click(function () {
         $("#inputMethod").text("Date finished");
-        $("#goalDt").removeClass("visOff").addClass("visOn");
-        $("#goalPg").removeClass("visOn").addClass("visOff");
-        $("#warningDescrepency").removeClass("visOff").addClass("visOn");
+        $("#goalDt").show();
+        $("#goalPg").hide();
+        $("#status-display").text("Please note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
         savedData.books[savedData.currentBook].goalType = "date";
     });
 
@@ -60,10 +60,10 @@ $(document).ready(function () {
     });
 
     $("#btn-print").click(function () {
-        $("#input-section, #introduction, #months, footer, #print-title").hide();
+        $("#input-section, #introduction, #months, footer, #print-title, #summary-title").hide();
         $("#print-introduction").show();
         window.print();
-        $("#input-section, #introduction, #months, footer, #print-title").show();
+        $("#input-section, #introduction, #months, footer, #print-title, #summary-title").show();
         $("#print-introduction").hide();
     });
 

@@ -56,8 +56,7 @@ function handleAuthClick(event) {
     if (goAheadButtonClicked === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();
-        $("#verify-message").removeClass("visOn").addClass("visOff");
-        $("#export-progress").removeClass("visOff").addClass("visOn");
+        $("#verify-message").hide;
     } else {
         saveEvents();
     }
@@ -68,7 +67,7 @@ function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     goAheadButtonClicked = false;
     $("#verify-message").removeClass("visOff").addClass("visOn");
-    $("#export-status").text(`Signed out from Google`)
+    $("#status-display").text(`Signed out from Google`)
 }
 
 function Event(summary, start, end) {
@@ -90,10 +89,10 @@ function saveEvents() {
         let pagesRange = "";
         if(i == (datesArray.length - 1)) {
             pagesRange = "the last pages";
-            $("#export-status").text(`Export complete`)
+            $("#status-display").text(`Export complete`)
         } else {
             pagesRange = `pages ${pages * i} - ${pages * i + pages - 1}`;
-            $("#export-status").text(`Exporting events... ${100 / datesArray.length * (i + 1)} %`)
+            $("#status-display").text(`Exporting events... ${100 / datesArray.length * (i + 1)} %`)
         }
         let event = new Event(
             `Read ${pagesRange} of '${savedData.books[savedData.currentBook].bookTitle}'`,

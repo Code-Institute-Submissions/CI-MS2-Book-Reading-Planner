@@ -38,7 +38,6 @@ h2 {
 	text-align: left;
 	font-size: 1.2rem;
 	color: #A69D91;
-	
     margin-top: 2rem;
 }
 
@@ -183,19 +182,10 @@ input[type=radio] {
     margin-right: 5px;
 }
 
-.visOn {
-    display: inline;
-}
-
-.visOff {
-    display: none;
-}
-
 /*------------------------------------------------------- Section calendar    */
 
 #calendar-section .input-wrapper {
     background-color: rgba(0,0,0,0.1);
-    
 }
 
 .btn {
@@ -211,6 +201,10 @@ input[type=radio] {
 .btn:hover {
     background-color: #A69D91;
     color: #fff;
+}
+
+#status-display {
+    text-align: center;
 }
 
 hr {
@@ -276,10 +270,10 @@ td {
 }
 
 #print-schedule .logo {
-        font-size: 1.5rem;
-        color: #000;
-        padding-left: 0;
-        padding-right: 15px;
+    font-size: 1.5rem;
+    color: #000;
+    padding-left: 0;
+    padding-right: 15px;
 }
 
 #print-introduction {
@@ -297,7 +291,6 @@ td {
     display: inline-block;
     color: #333;
 }
-
 
 /*------------------------------------------------------- Footer    */
 
@@ -342,9 +335,6 @@ footer > p {
 }
 
 @media screen and (max-width : 766px) {
-    #calendar-section .input-wrapper {
-        text-align: center;
-    }
     h2 {
         margin-top: 1.5rem;
     }
