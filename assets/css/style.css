@@ -10,6 +10,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/*------------------------------------------------------- Box special */
+
+section {
+    border-top: 75px solid transparent;
+    margin-top: -75px;
+}
+
 /*------------------------------------------------------- Text: Headers and Paragraph */
 
 h1 {
@@ -71,11 +78,6 @@ header i {
 
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
     color: #000;
-}
-
-section {
-    border-top: 75px solid transparent;
-    margin-top: -75px;
 }
 
 /*------------------------------------------------------- Section: Introduction    */
@@ -163,10 +165,13 @@ input[type="number"] {
 
 input[type=radio] {
 	margin-right: 5px;
+    margin-top: 8px;
+    float: left;
 }
 
 .radio-label {
 	margin: 0;
+    width: 90%;
 }
 
 .short-field {
@@ -305,6 +310,12 @@ footer > p {
     }
 }
 
+@media screen and (max-width : 575px) {
+    .full-size-column {
+        margin-top: 15px;
+    }
+}
+
 @media screen and (max-width : 450px) {
     #logo {
         font-size: 1.8rem;
@@ -314,7 +325,9 @@ footer > p {
     header i {
         margin-left: 10px;
         text-align: center;
+        font-size: 1rem;
     }
+
 
     /* hier stimmt was noch nicht 
     .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
@@ -327,9 +340,31 @@ footer > p {
         color: #fff;
     }
 
-    .hide-small {
-        display: none;
+    .background-hero {
+        background-position: center bottom;
     }
+
+    #introduction {
+        position: relative;
+    }
+
+    #introduction h1 {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .introduction-text {       
+        bottom: 0px;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        width: 95%;
+        background-color: rgba(255,255,255,0.9);
+    }
+
+    
+
 
     h1 {
         font-size: 1.5rem;
