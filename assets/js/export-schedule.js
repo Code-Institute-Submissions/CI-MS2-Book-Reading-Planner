@@ -54,6 +54,7 @@ function updateSigninStatus(isSignedIn) {
 
 // sign in user after button click
 function handleAuthClick(event) {
+    $("#status-wrapper").show();
     if (goAheadButtonClicked === false || signedInToGoogle === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();

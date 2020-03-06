@@ -190,6 +190,7 @@ input[type=radio] {
 
 #calendar-section .input-wrapper {
     background-color: rgba(0,0,0,0.1);
+    min-height: 380px;
 }
 
 .btn {
@@ -205,6 +206,15 @@ input[type=radio] {
 .btn:hover {
     background-color: #A69D91;
     color: #fff;
+}
+
+#status-wrapper {
+    display: none;
+}
+
+#status-wrapper p {
+    text-align: center;
+    color: #333;
 }
 
 hr {
