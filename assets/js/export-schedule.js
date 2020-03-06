@@ -11,6 +11,7 @@ var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 var goaheadButton = document.getElementById('goahead-google');
 var signoutButton = document.getElementById('signout-google');
 var goAheadButtonClicked = false;
+var signedInToGoogle = false;
 
 //  On load, called to load the auth2 library and API client library.
 function handleClientLoad() {
@@ -36,13 +37,13 @@ function initClient() {
     });
 }
 
-/**
- *  Called when the signed in status changes, to update the UI
- *  appropriately. After a sign-in, the API is called.
- */
+//  Called when the signed in status changes. After a sign-in, the API is called.
+ 
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         signoutButton.style.display = "inline-block";
+        signedInToGoogle = true;
+        
         if (goAheadButtonClicked) {
             saveEvents();
         }
@@ -53,7 +54,7 @@ function updateSigninStatus(isSignedIn) {
 
 // sign in user after button click
 function handleAuthClick(event) {
-    if (goAheadButtonClicked === false) {
+    if (goAheadButtonClicked === false || signedInToGoogle === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();
     } else {
@@ -65,6 +66,7 @@ function handleAuthClick(event) {
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     goAheadButtonClicked = false;
+    signedInToGoogle = false;
     $("#status-display").text(`Signed out from Google`)
 }
 

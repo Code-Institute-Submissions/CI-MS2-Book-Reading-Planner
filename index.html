@@ -47,7 +47,7 @@
             </div>
             <div class="col-12 col-sm-5 full-size-column">
   			    <label>Total number of pages</label><br>
-			    <input type="number" name="pages" id="totalPages" value="120">
+			    <input type="number" name="pages" id="totalPages" value="300">
             </div>
 		</form>
         <h2><i class="fas fa-bullseye"></i> Set a reading goal</h2>
@@ -60,7 +60,7 @@
             </div>
             <div class="col-12 col-sm-5 full-size-column">
   			    <label id="inputMethod">Number of pages</label><br>
-			    <input type="number" name="title" id="goalPg" value="25">
+			    <input type="number" name="title" id="goalPg" value="12">
                 <input type="date" name="title" id="goalDt">
             </div>		
 		</form>
@@ -85,17 +85,19 @@
     </div>
 	</section>
     <section id="calendar-section" class="container-xl">
-    <div id="summary-title">	
-	    <h2><i class="fas fa-user"></i>Your reading plan</h2>
-        <input id="export-google" type="button" value="Export to Google" class="btn" />
-        <input id="signout-google" type="button" value="Signout from Google" class="btn" />
+        <div id="summary-title">	
+	        <h2><i class="fas fa-user"></i>Your reading plan</h2>
+            <input id="export-google" type="button" value="Export to Google" class="btn" />
+            <input id="signout-google" type="button" value="Signout from Google" class="btn" />
         </div>
-	    <div class="input-wrapper" id="months">
+	    <div class="input-wrapper">
             <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
             <div id="export-progress">
                 <p><span id="status-display"></span></p>
             </div>
-		    <!-- the calendar appears here, generated in script.js -->
+            <div id="months">
+	            <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
+            </div>
 	    </div>
         <div id="print-title">
             <h2><i class="fas fa-print"></i>Details for printing</h2>

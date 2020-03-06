@@ -60,10 +60,10 @@ $(document).ready(function () {
     });
 
     $("#btn-print").click(function () {
-        $("#input-section, #introduction, #months, footer, #print-title, #summary-title").hide();
+        $("#input-section, #introduction, #months, header, footer, #print-title, #summary-title").hide();
         $("#print-introduction").show();
         window.print();
-        $("#input-section, #introduction, #months, footer, #print-title, #summary-title").show();
+        $("#input-section, #introduction, #months, header, footer, #print-title, #summary-title").show();
         $("#print-introduction").hide();
     });
 
@@ -79,7 +79,7 @@ $(document).ready(function () {
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
-    let initialBook = new UserInput(today, "Example", 120, 25, null, [true, true, true, true, true, true, true], "20:00", 60, "pages", null, []);
+    let initialBook = new UserInput(today, "Example", 300, 12, null, [true, true, true, true, true, true, true], "20:00", 60, "pages", null, []);
     savedData.add(initialBook);
 });
 
