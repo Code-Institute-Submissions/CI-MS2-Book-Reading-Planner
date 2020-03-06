@@ -3,19 +3,13 @@ $(document).ready(function () {
 
     // ------------------------------------------------ reacting to user input:
     $("#outputAmount").click(function () {
-        $("#inputMethod").text("Number of pages");
-        $("#goalPg").show();
-        $("#goalDt").hide();
         $("#status-display").text("");
-        savedData.books[savedData.currentBook].goalType = "pages";
+        toggleGoal("pages", "Number of pages", "#goalPg", "#goalDt");
     });
 
     $("#outputWhen").click(function () {
-        $("#inputMethod").text("Date finished");
-        $("#goalDt").show();
-        $("#goalPg").hide();
-        $("#status-display").text("Please note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
-        savedData.books[savedData.currentBook].goalType = "date";
+        $("#status-display").text("Note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
+        toggleGoal("date", "Date to be finished", "#goalDt", "#goalPg");
     });
 
     $('#bookTitle').on('input', function () {
@@ -335,3 +329,14 @@ function updateSummary() {
         savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar below.`);
     $("#print-summary").html(`Reading Plan "${savedData.books[savedData.currentBook].bookTitle}"`);
 }
+
+// Function called when changing the reading goal (change of radio button)
+function toggleGoal(goalType, label, show, hide) {
+        $("#months, #print-table").empty();
+        $("#inputMethod").text(label);
+        $("#goalPg, #goalDt").val("")
+        $(show).show();
+        $(hide).hide();
+        $("#summary").text("Please set a new reading goal")
+        savedData.books[savedData.currentBook].goalType = goalType;
+    }
