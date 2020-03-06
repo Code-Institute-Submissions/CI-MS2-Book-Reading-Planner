@@ -56,7 +56,6 @@ function handleAuthClick(event) {
     if (goAheadButtonClicked === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();
-        $("#verify-message").hide;
     } else {
         saveEvents();
     }
@@ -66,7 +65,6 @@ function handleAuthClick(event) {
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     goAheadButtonClicked = false;
-    $("#verify-message").removeClass("visOff").addClass("visOn");
     $("#status-display").text(`Signed out from Google`)
 }
 
