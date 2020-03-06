@@ -10,14 +10,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/*------------------------------------------------------- Box special */
+/*------------------------------------------------------- Box special and Color special*/
 
+/* --- making sure content is not under the footer when using navigation icons --- */
 section {
     border-top: 75px solid transparent;
     margin-top: -75px;
 }
 
-/*------------------------------------------------------- Text: Headers and Paragraph */
+.btn {
+    background-color: #333;
+    border-radius: 10px;
+    min-width: 100px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #fff;
+    float: right;
+}
+
+.btn:hover {
+    background-color: #A69D91;
+    color: #fff;
+}
+
+/*------------------------------------------------------- Text: Headers */
 
 h1 {
     font-family: "Blinker", sans-serif;
@@ -96,6 +112,7 @@ header i {
     background-repeat: no-repeat;
 }
 
+/* --- making sure the text doesn't overlap the hero image --- */
 .introduction-text {
     width: 30%;
 }
@@ -193,21 +210,6 @@ input[type=radio] {
     min-height: 380px;
 }
 
-.btn {
-    background-color: #333;
-    border-radius: 10px;
-    min-width: 100px;
-    margin-top: 15px;
-    font-weight: 600;
-    color: #fff;
-    float: right;
-}
-
-.btn:hover {
-    background-color: #A69D91;
-    color: #fff;
-}
-
 #status-wrapper {
     display: none;
 }
@@ -255,6 +257,7 @@ td {
     color: #fff;
 }
 
+/* --- print schedule --- */
 #print-schedule hr {
     border: 0.5px solid #777;
     margin-top: 2px;
@@ -412,7 +415,7 @@ footer > p {
         margin-top: -58px;
     }
 
-    /* calendar section */
+    /* --- calendar section --- */
 
     td {
         width: 37px;

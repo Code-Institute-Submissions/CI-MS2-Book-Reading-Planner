@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
 
-    // ------------------------------------------------ reacting to user input:
+    // --- reacting to user input ---
     $("#outputAmount").click(function () {
         $("#status-wrapper").hide();
         $("#status-display").text("");
@@ -56,10 +56,10 @@ $(document).ready(function () {
     });
 
     $("#btn-print").click(function () {
-        $("#input-section, #introduction, #months, header, footer, #print-title, #summary-title").hide();
+        $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").hide();
         $("#print-introduction").show();
         window.print();
-        $("#input-section, #introduction, #months, header, footer, #print-title, #summary-title").show();
+        $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").show();
         $("#print-introduction").hide();
     });
 
@@ -106,6 +106,7 @@ let calendarLabels = {
     allMonths: ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"]
 }
 
+// --- A delay after every user input, avoids updating the UI with every single keystroke ---
 let delay = {
     timer: setTimeout(function () {
         countDays();
@@ -123,6 +124,7 @@ let delay = {
     }
 }
 
+// --- is called when the reading goal is a number of pages ---
 function countDays() {
     let totalPages = savedData.books[savedData.currentBook].totalPages;
     let goalPages = savedData.books[savedData.currentBook].goalPages;
@@ -132,6 +134,7 @@ function countDays() {
     }
 }
 
+// --- is called when the reading goal is a date ---
 function countPages() {
     let totalPages = savedData.books[savedData.currentBook].totalPages;
     if (inputCheck(totalPages, 1)) {
@@ -172,6 +175,7 @@ function countPages() {
     }
 }
 
+// --- Checking user input and displaying error message if appropriate ---
 function inputCheck(totalPages, goalPages) {
     returnValue = true;
     $("#totalPages").popover("hide");
@@ -215,6 +219,7 @@ function inputCheck(totalPages, goalPages) {
     return returnValue;
 }
 
+// --- creates the calendar in the calendar-section. Both table and print version ---
 function drawCalendar(days) {
     let el = document.getElementById("months");
     let today = new Date();
@@ -241,14 +246,14 @@ function drawCalendar(days) {
         let hr = document.createElement('hr');
         calendarMonthBg.appendChild(hr);
 
-        // ************* building the rows:
+        // building the rows:
         for (let i = 0; i < 7; i++) {
             if (dateAdder.getFullYear() * 100 + dateAdder.getMonth() > checkForBreak) {
                 break;
             }
             let tr = document.createElement('tr');
 
-            // *************** building the columns
+            // building the columns
             for (let j = 0; j < 7; j++) {
                 let td = document.createElement('td');
                 tr.appendChild(td)
@@ -286,7 +291,7 @@ function drawCalendar(days) {
         monthLooper += 1;
     }
 
-    // ---------------------------- Generate print schedule
+    // Generate print schedule
     let pages = savedData.books[savedData.currentBook].goalPages;
     $("#print-table").empty();
     savedData.books[savedData.currentBook].readingDates.forEach(function (date, i) {
@@ -322,6 +327,7 @@ function resetDate() {
     return dateAdder;
 }
 
+// --- creates (and updates) the summary for the screen and for the print version ---
 function updateSummary() {
     let goalSplit = savedData.books[savedData.currentBook].endDate.split("-");
     $("#summary").text(`You will be finished reading "${
@@ -332,7 +338,7 @@ function updateSummary() {
     $("#print-summary").html(`Reading Plan "${savedData.books[savedData.currentBook].bookTitle}"`);
 }
 
-// Function called when changing the reading goal (change of radio button)
+// --- called when changing the reading goal (change of radio button) ---
 function toggleGoal(goalType, label, show, hide) {
         $("#months, #print-table").empty();
         $("#inputMethod").text(label);

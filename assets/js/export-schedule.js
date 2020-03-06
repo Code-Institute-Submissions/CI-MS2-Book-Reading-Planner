@@ -10,6 +10,7 @@ var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
 var goaheadButton = document.getElementById('goahead-google');
 var signoutButton = document.getElementById('signout-google');
+var exportgoogleButton = document.getElementById('export-google');
 var goAheadButtonClicked = false;
 var signedInToGoogle = false;
 
@@ -34,6 +35,10 @@ function initClient() {
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
         alert(`Sorry, an error occured when trying to connect to the Google API: \n${JSON.stringify(error, null, 2)}`);
+        $("#status-wrapper").show();
+        exportgoogleButton.style.display = "none";
+        signoutButton.style.display = "none";
+        $("#status-display").text("Error connecting to the Google API. The export feature is currently not available.");
     });
 }
 
