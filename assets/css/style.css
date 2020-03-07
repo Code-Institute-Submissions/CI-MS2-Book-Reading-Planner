@@ -95,11 +95,6 @@ header i {
     color: #a7170e;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    color: #000;
-}
-
 /*------------------------------------------------------- Section: Introduction    */
 
 #introduction {

@@ -62,7 +62,7 @@ $(document).ready(function () {
         }
     });
 
-    // --- function to replace css style: html {scroll-behavior: smooth;} to work in all browsers ---
+    // --- replacement for css style: html {scroll-behavior: smooth;} to work in all browsers ---
     $(".nav-link").on('click', function(event) {
     if (this.hash !== "") {
       event.preventDefault();
