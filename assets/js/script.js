@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     // --- reacting to user input ---
@@ -7,13 +6,11 @@ $(document).ready(function () {
         $("#status-display").text("");
         toggleGoal("pages", "Number of pages", "#goalPg", "#goalDt");
     });
-
     $("#outputWhen").click(function () {
         $("#status-wrapper").show();
         $("#status-display").text("Note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
         toggleGoal("date", "Date to be finished", "#goalDt", "#goalPg");
     });
-
     $('#bookTitle').on('input', function () {
         $("#bookTitle").popover("hide");
         if ($(this).val().length > 40) {
@@ -23,38 +20,31 @@ $(document).ready(function () {
             updateSummary();
         }
     });
-
     $('#totalPages').on('input', function () {
         savedData.books[savedData.currentBook].totalPages = Number($(this).val());
         delay.count();
     });
-
     $('#goalPg').on('input', function () {
         savedData.books[savedData.currentBook].goalPages = Number($(this).val());
         delay.count();
     });
-
     $('#goalDt').on('input', function () {
         savedData.books[savedData.currentBook].goalDate = $(this).val();
         delay.count();
     });
-
     $('#eventTime').on('input', function () {
         savedData.books[savedData.currentBook].readingTime = $(this).val();
         delay.count();
     });
-
     $('#eventLength').on('input', function () {
         savedData.books[savedData.currentBook].readingDuration = Number($(this).val());
         delay.count();
     });
-
     $('.dayCheck').click(function () {
         savedData.books[savedData.currentBook].weekdaySelected[$('.dayCheck').index(this)] = this.checked;
         $("#months").empty();
         delay.count();
     });
-
     $("#btn-print").click(function () {
         $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").hide();
         $("#print-introduction").show();
@@ -62,7 +52,6 @@ $(document).ready(function () {
         $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").show();
         $("#print-introduction").hide();
     });
-
     $("#export-google").click(function() {
         $("#alertModal").modal();
         let eventsNumber = savedData.books[savedData.currentBook].readingDates.length;
@@ -72,6 +61,19 @@ $(document).ready(function () {
             $("#events-warning").text("one event");
         }
     });
+
+    // --- function to replace css style: html {scroll-behavior: smooth;} to work in all browsers ---
+    $(".nav-link").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $("html").animate({
+        scrollTop: $(hash).offset().top
+      }, 400, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
 
     // setting sample values, if there's no saved data. (Saving not implemented yet):
     let today = new Date();
@@ -90,9 +92,10 @@ function UserInput(startDate, bookTitle, totalPages, goalPages, goalDate, weekda
     this.readingDuration = readingDuration;
     this.goalType = goalType;
     this.endDate = endDate;
-    this.readingDates = readingDates; // Array with dates, used for export to Google calendar
+    this.readingDates = readingDates; // Array with dates, used for export and print
 }
 
+// --- object containing the book(s). Just one book, as long as saving data is not implemented ---
 let savedData = {
     books: [],
     currentBook: 0,
@@ -166,7 +169,7 @@ function countPages() {
         roundedNumber = Math.ceil(numberOfPages);
         savedData.books[savedData.currentBook].goalPages = roundedNumber;
 
-        // ********** subtracting days when reading 0.n pages per day more
+        // subtracting days when reading 0.n pages per day more
         discrepance = Math.round((1 - (numberOfPages - Math.floor(numberOfPages))) * result)
         if (discrepance > roundedNumber) {
             result -= Math.floor(Math.floor(discrepance) / roundedNumber);
