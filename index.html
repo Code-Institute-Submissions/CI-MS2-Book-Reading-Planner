@@ -75,7 +75,7 @@
         <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
 	    <form class="form-row input-wrapper">
 	        <div class="col-12 col-sm-6">
-                <p>Time and duration, used when creating events for Google Calendar:</p><br>
+                <p>Time and duration, used for exporting events:</p><br>
                 <label class="short-label">At:</label><input type="time" id="eventTime" class="short-field" value="20:00"><p> Time</p><br>
                 <label class="short-label">For:</label><input type="number" id="eventLength" class="short-field" value="60"><p> Minutes</p>
             </div>
@@ -98,8 +98,10 @@
         <div id="online-summary">
             <div id="summary-title">	
 	            <h2><i class="fas fa-user"></i>Your reading plan</h2>
-                <input id="export-google" type="button" value="Export to Google" class="btn" />
-                <input id="signout-google" type="button" value="Signout from Google" class="btn" />
+                <div class="btns-right">
+                    <input id="signout-google" type="button" value="Signout from Google" class="btn" />
+                    <input id="export-google" type="button" value="Export" class="btn" />
+                </div>
             </div>
 	        <div class="input-wrapper">
                 <div id="status-wrapper">
@@ -114,7 +116,9 @@
         </div>
         <div id="print-title">
             <h2><i class="fas fa-print"></i>Details for printing</h2>
-            <input id="btn-print" type="button" value="Print" class="btn" />
+            <div class="btns-right">
+                <input id="btn-print" type="button" value="Print" class="btn" />
+            </div>
         </div>
         <div id="print-schedule" class="input-wrapper">
             <div id="print-introduction">
@@ -130,11 +134,11 @@
                     <h3>Pages</h3>
                     <hr>
                 </div>
-                <div class="d-none d-sm-block col-md-1 col-padding">
+                <div class="d-none d-md-block col-md-1 col-padding">
                     <h3>Check</h3>
                     <hr>
                 </div>
-                <div class="d-none d-sm-block col-md-6 col-padding">
+                <div class="d-none d-md-block col-md-6 col-padding">
                     <h3>Remarks</h3>
                     <hr>
                 </div> 
@@ -175,7 +179,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
+    <!--
     <script src="assets/js/export-schedule.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+    -->
 </body>
 </html>

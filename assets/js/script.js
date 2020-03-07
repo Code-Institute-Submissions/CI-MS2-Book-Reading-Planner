@@ -312,10 +312,10 @@ function drawCalendar(days) {
             <div class="col-4 col-md-2 col-padding">
                 ${pagesRange}<br><hr>
             </div>
-            <div class="d-none d-sm-block col-md-1 col-padding">
+            <div class="d-none d-md-block col-md-1 col-padding">
                 <i class="far fa-square"></i><br><hr>
             </div>
-            <div class="d-none d-sm-block col-md-6 col-padding">
+            <div class="d-none d-md-block col-md-6 col-padding">
                 <br><hr>
             </div> 
         </div>

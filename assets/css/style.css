@@ -17,16 +17,21 @@ section {
 .btn {
     background-color: #333;
     border-radius: 10px;
-    min-width: 100px;
+    width: 100px;
     margin-top: 15px;
+    margin-left: 5px;
     font-weight: 600;
     color: #fff;
-    float: right;
 }
 
 .btn:hover {
     background-color: #A69D91;
     color: #fff;
+}
+
+.btns-right {
+    float: right;
+    display: inline;
 }
 
 /*------------------------------------------------------- Text: Headers */
@@ -208,6 +213,17 @@ input[type=radio] {
     min-height: 380px;
 }
 
+#signout-google {
+    font-size: 1rem;
+    display: inline-block;
+    width: auto;
+    background-color: #fff;
+    color: #333;
+    font-weight: 300;
+    font-style: italic;
+}
+    
+
 #status-wrapper {
     display: none;
 }
@@ -292,12 +308,6 @@ td {
     display: none;
 }
 
-#btn-print {
-    margin-right: 0;
-    margin-left: auto;
-    width: 100px;
-}
-
 #calendar-section h2 {
     display: inline-block;
     color: #333;
@@ -349,6 +359,10 @@ footer > p {
     h2 {
         margin-top: 1.5rem;
     }
+
+    #months {
+        text-align: center;
+    }
 }
 
 @media screen and (max-width : 575px) {
@@ -385,6 +399,7 @@ footer > p {
     h1 {
         font-size: 1.3rem;
         font-weight: 600;
+        text-align: center;
     }
 
     .introduction-text {       
@@ -394,7 +409,7 @@ footer > p {
         padding: 0;
         border: 0;
         width: 95%;
-        background-color: rgba(255,255,255,0.9);
+        background-color: #fff;
     }
 
     h3 {
