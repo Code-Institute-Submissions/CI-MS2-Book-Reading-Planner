@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // --- reacting to user input ---
     $("#outputAmount").click(function () {
-        $("#status-display").text("");
+        $("#status-display").text("Click on the Export-button to create events for Google Calendar.");
         toggleGoal("pages", "Number of pages", "#goalPg", "#goalDt");
     });
     $("#outputWhen").click(function () {
