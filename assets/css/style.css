@@ -226,7 +226,6 @@ input[type=radio] {
     margin: 5px;
     border: 0.5px solid #333;
     border-radius: 15px;
-    
 }
 
 .fa-info-circle {
@@ -238,7 +237,6 @@ input[type=radio] {
     width: 100%;
     text-align: left;
 }
-
 
 hr {
     border: 0.5px solid #a5978b;
