@@ -38,43 +38,43 @@
     </div>
     </section>
     
-	<!-- Secont Section - User Input -->
+    <!-- Second Section - User Input -->
     <section id="input-section">
     <div class="container-xl">
 
         <!-- input group 1/3-->
 	    <h2><i class="fas fa-edit"></i> Basic information</h2>	
-		<form class="form-row input-wrapper">
-  			<div class="col-12 col-sm-7">
+        <form class="form-row subsection-wrapper">
+            <div class="col-12 col-sm-7">
                 <label>Book title</label><br>
-			    <input type="text" name="title" id="bookTitle" value="Example">
+                <input type="text" name="title" id="bookTitle" value="Example">
             </div>
             <div class="col-12 col-sm-5 full-size-column">
-  			    <label>Total number of pages</label><br>
-			    <input type="number" name="pages" id="totalPages" value="300">
+                <label>Total number of pages</label><br>
+                <input type="number" name="pages" id="totalPages" value="300">
             </div>
-		</form>
+        </form>
 
         <!-- input group 2/3-->
         <h2><i class="fas fa-bullseye"></i> Set a reading goal</h2>
-		<form class="form-row input-wrapper">
-  			<div class="col-12 col-sm-7">
+        <form class="form-row subsection-wrapper">
+            <div class="col-12 col-sm-7">
                 <input type="radio" name="outputType" value="1" checked id="outputAmount">
-				<label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
-  				<input type="radio" name="outputType" value="2" id="outputWhen">
-				<label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
+                <label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
+                <input type="radio" name="outputType" value="2" id="outputWhen">
+                <label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
             </div>
             <div class="col-12 col-sm-5 full-size-column">
-  			    <label id="inputMethod">Number of pages</label><br>
-			    <input type="number" name="title" id="goalPg" value="12">
+                <label id="inputMethod">Number of pages</label><br>
+                <input type="number" name="title" id="goalPg" value="12">
                 <input type="date" name="title" id="goalDt">
             </div>		
-		</form>
+        </form>
 
         <!-- input group 3/3-->
         <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
-	    <form class="form-row input-wrapper">
-	        <div class="col-12 col-sm-6">
+	    <form class="form-row subsection-wrapper">
+            <div class="col-12 col-sm-6">
                 <p>Time and duration, used for exporting events:</p><br>
                 <label class="short-label">At:</label><input type="time" id="eventTime" class="short-field" value="20:00"><p> Time</p><br>
                 <label class="short-label">For:</label><input type="number" id="eventLength" class="short-field" value="60"><p> Minutes</p>
@@ -83,36 +83,36 @@
                 <p>Weekday:</p><br>
                 <input type="checkbox" class="dayCheck" id="sunday" name="sunday" value="1" checked><label for="sunday">Sunday</label><br>
                 <input type="checkbox" class="dayCheck" id="monday" name="monday" value="1" checked><label for="monday">Monday</label><br>
-	            <input type="checkbox" class="dayCheck" id="tuesday" name="Tuesday" value="1" checked><label for="tuesday">Tuesday</label><br>
-   	            <input type="checkbox" class="dayCheck" id="wednesday" name="Wednesday" value="1" checked><label for="wednesday">Wednesday</label><br>
+                <input type="checkbox" class="dayCheck" id="tuesday" name="Tuesday" value="1" checked><label for="tuesday">Tuesday</label><br>
+                <input type="checkbox" class="dayCheck" id="wednesday" name="Wednesday" value="1" checked><label for="wednesday">Wednesday</label><br>
                 <input type="checkbox" class="dayCheck" id="thursday" name="Thursday" value="1" checked><label for="thursday">Thursday</label><br>
                 <input type="checkbox" class="dayCheck" id="friday" name="Friday" value="1" checked><label for="friday">Friday</label><br>
                 <input type="checkbox" class="dayCheck" id="saturday" name="Saturday" value="1" checked><label for="saturday">Saturday</label><br>
             </div>
         </form>
     </div>
-	</section>
+    </section>
 
     <!-- Third Section - Shows the Summary, Screen and print calendar, Action buttons (for print and export function), and status if applicable -->
     <section id="calendar-section" class="container-xl">
         <div id="online-summary">
             <div id="summary-title">	
-	            <h2><i class="fas fa-user"></i>Your reading plan</h2>
+                <h2><i class="fas fa-user"></i>Your reading plan</h2>
                 <div class="btns-right">
                     <input id="signout-google" type="button" value="Signout from Google" class="btn" />
                     <input id="export-google" type="button" value="Export" class="btn" />
                 </div>
             </div>
-	        <div class="input-wrapper">
+            <div class="subsection-wrapper">
                 <div id="status-wrapper">
                     <p><i class="fas fa-info-circle"></i><br><span id="status-display"></span></p>
                     <hr>
                 </div>
                 <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
                 <div id="months">
-	                <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
+                    <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
                 </div>
-	        </div>
+            </div>
         </div>
         <div id="print-title">
             <h2><i class="fas fa-print"></i>Details for printing</h2>
@@ -120,11 +120,11 @@
                 <input id="btn-print" type="button" value="Print" class="btn" />
             </div>
         </div>
-        <div id="print-schedule" class="input-wrapper">
+        <div id="print-schedule" class="subsection-wrapper">
             <div id="print-introduction">
                 <span class="logo"><em>iReadMore</em></span><br><h3><span id="print-summary"></span></h3>
             </div>
-            <!-- Creating the headers for the print schedule -->
+                <!-- Creating the headers for the print schedule -->
             <div class="row">
                 <div class="col-8 col-md-3 col-padding">
                     <h3>Date</h3>
@@ -151,7 +151,7 @@
 
     <!-- Footer not fixed at the bottom -->
     <footer>
-		<p>&#169; 2020 Andreas Jost</p>
+        <p>&#169; 2020 Andreas Jost</p>
         <a href="mailto:codefactory@gmx.ch">
                 <i class="far fa-envelope text-center social-icon"></i>
         </a>
@@ -179,9 +179,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="assets/js/script.js"></script>
-    <!--
     <script src="assets/js/export-schedule.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-    -->
 </body>
 </html>
