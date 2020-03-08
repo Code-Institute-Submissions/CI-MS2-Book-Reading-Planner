@@ -2,12 +2,10 @@ $(document).ready(function () {
 
     // --- reacting to user input ---
     $("#outputAmount").click(function () {
-        $("#status-wrapper").hide();
         $("#status-display").text("");
         toggleGoal("pages", "Number of pages", "#goalPg", "#goalDt");
     });
     $("#outputWhen").click(function () {
-        $("#status-wrapper").show();
         $("#status-display").text("Note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
         toggleGoal("date", "Date to be finished", "#goalDt", "#goalPg");
     });

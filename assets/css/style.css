@@ -221,16 +221,24 @@ input[type=radio] {
     font-weight: 300;
     font-style: italic;
 }
-    
 
 #status-wrapper {
-    display: none;
+    margin: 5px;
+    border: 0.5px solid #333;
+    border-radius: 15px;
+    
 }
 
-#status-wrapper p {
-    text-align: center;
-    color: #333;
+.fa-info-circle {
+    font-size: 2rem;
+    color: #A69D91;   
 }
+
+#status-display {
+    width: 100%;
+    text-align: left;
+}
+
 
 hr {
     border: 0.5px solid #a5978b;

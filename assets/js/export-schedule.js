@@ -8,9 +8,9 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // Authorization scope required by the API
 var SCOPES = "https://www.googleapis.com/auth/calendar.events";
 
-var goaheadButton = document.getElementById('goahead-google');
-var signoutButton = document.getElementById('signout-google');
-var exportgoogleButton = document.getElementById('export-google');
+var goaheadButton = document.getElementById("goahead-google");
+var signoutButton = document.getElementById("signout-google");
+var exportgoogleButton = document.getElementById("export-google");
 var goAheadButtonClicked = false;
 var signedInToGoogle = false;
 
@@ -26,6 +26,7 @@ function initClient() {
         discoveryDocs: DISCOVERY_DOCS,
         scope: SCOPES
     }).then(function () {
+
         // Listen for sign-in state changes.
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
@@ -35,7 +36,6 @@ function initClient() {
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
         alert(`Sorry, an error occured when trying to connect to the Google API: \n${JSON.stringify(error, null, 2)}`);
-        $("#status-wrapper").show();
         exportgoogleButton.style.display = "none";
         signoutButton.style.display = "none";
         $("#status-display").text("Error connecting to the Google API. The export feature is currently not available.");
@@ -48,7 +48,6 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         signoutButton.style.display = "inline-block";
         signedInToGoogle = true;
-        
         if (goAheadButtonClicked) {
             saveEvents();
         }
@@ -59,7 +58,6 @@ function updateSigninStatus(isSignedIn) {
 
 // sign in user after button click
 function handleAuthClick(event) {
-    $("#status-wrapper").show();
     if (goAheadButtonClicked === false || signedInToGoogle === false) {
         goAheadButtonClicked = true;
         gapi.auth2.getAuthInstance().signIn();
@@ -77,9 +75,9 @@ function handleSignoutClick(event) {
 }
 
 function Event(summary, start, end) {
-	this.summary = summary;
-	this.start = start;
-	this.end = end;
+    this.summary = summary;
+    this.start = start;
+    this.end = end;
 }
 
 function saveEvents() {
