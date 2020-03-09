@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    // --- Enable tooltips (used for navbar icons) ---
+    $('[data-toggle="tooltip"]').tooltip();
 
     // --- reacting to user input ---
     $("#outputAmount").click(function () {
