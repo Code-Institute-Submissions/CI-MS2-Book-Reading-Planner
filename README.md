@@ -2,60 +2,64 @@
 
 ### Code Institute Milestone Project 2 - Interactive Frontend Development
 
-This projects helps people to read a book intentionnaly by creating a reading plan.
+This projects helps people to read a book intentionnaly by creating and a reading plan.
 
 ***
 ## UX
 User stories:
-As a reader, I want to know when I finish reading a book, or how much I have to read when I set a goal.
+- I want to know when I finish reading a book, or how much I have to read when I set a goal.
+- I consider buying a book, and want to know approximately how much effort I have to put into reading it
 
 ### Strategy
 Create a reading schedule for books, offering 2 tracks of information as an output:
-- How long does it take to read the entire book by reading x pages or x chapters every x day(s)
-- How many pages or chapters do I need to read per x day(s) to be finished by a certain date
+- How long does it take to read the entire book by reading n pages every n day(s)
+- How many pages do I need to read per n day(s) to be finished by a certain date
 
 ### Scope
 Initial Input from the user:
 - Book title
-- number of pages
-- reading goal (date to finish or number of pages per read)
+- Number of pages
+- Reading goal (date to finish or number of pages per read)
 
-Have further options selectable such as:
+Further options selectable such as:
 - 7 weekdays to enable or disable
 - What time the reading is happening (used for Google export)
-- how long a reading session normally is (used for Google export)
+- How long a reading session normally is (used for Google export)
 
 Output: Calendar with the days marked when the reading needs to happen. The user has the following options how to proceed:
-- generate a popup tab with the schedule for printing
-- export to Google Calendar (main calendar)
+- Print a reading schedule
+- Export schedule to Google Calendar as calendar events (main calendar)
 
 ### Structure
 
 One page design, three main sections:
 - home page with a short introduction
 - input of data, adjustements of options
-- calendar (schedule), and output options
+- calendar as a table, detailed schedule, and Print/Export buttons
 
-Navigation bar on top, links to jump to the main sections.
+Fixed navigation bar on top with a logo and links to jump to the main sections.
 
-Footer at the bottom of the home page with copyright and contact information
+Footer at the bottom of the home page with copyright information and contact links
 
 ### Skeleton
 [Wireframe](/wireframe.pdf)
 
 ### Surface
 
-Minimalistic design to avoid distraction from the functions.
-Subtile footer.
+- Minimalistic design to avoid distraction from the functions
+- Subtile footer
+- Short introduction with a tagline and a call to action
+- Sample values when opening the page ( > promting users to experiment through changing the values)
+- Update happens automatically, following the trend of many modern web-forms ( > no action-button to create the plan)
 
 ***
 ## Features
 
 ### Current Features
 
-- Show a calendar with marked dates according to the given input. The plan adjusts dynamically when the user changes values (as described under "Scope")
-- Two possible reading goals: Either with a finish date, or a number of pages to read at once. The goal changes when selecting the according radio button with its option
-- Output options: Print View of the reading schedule (/assets/js/print-schedule.js) or Export to Google Calendar (/assets/js/export-schedule.js). The user can select one of the 2 buttons above the calendar. When Choosing the Google Calendar Export, the user will be prompted to the Google Login.
+- Visualizing a reading plan according to the user input. The plan adjusts dynamically when the user changes values.
+- Two possible reading goals: Either with a finish date, or a number of pages to read at once. The goal changes when selecting the radio button respectivly.
+- Output options: Print or Export to Google Calendar (/assets/js/export-schedule.js). The user can push the Export or Print button. When choosing Export, the user will be prompted to the Google Login.
 - Responsive design
 
 ### Planned Features
@@ -66,7 +70,7 @@ Subtile footer.
 - Showing the progress of the reading of saved books
 - Localised Calendar (week starting on Monday instead of Sunday for most European countries)
 - Alert in the calendar if the reading plan is conflicting with existing Calendar Events
-- Reminder in the browser for reading
+- Customize the reminder of the Google Calendar Events (currently it's 30 minutes before the event).
 
 ***
 ## Technologies used
@@ -75,7 +79,7 @@ Subtile footer.
 - CSS
 - JavaScript
 - Bootstrap 4.4.1 (getbootstrap.com)
-- jQuery (jQuery.com) to access DOM elements quicker and easy react to user input
+- jQuery 3.4.1 (jQuery.com) to access DOM elements quicker, and react to user input
 - Google Fonts (fonts.google.com) for 2 fonts
 - GitPod (gitpod.io) IDE
 - GitHub (github.com) for sharing
@@ -85,7 +89,7 @@ Subtile footer.
 ***
 ## Testing
 
-I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](https://c-ronics.com/course/iReadMore-testing.xls).
+I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](https://c-ronics.com/course/iReadMore-testing.xlsx).
 
 ***
 ## Deployment
@@ -99,6 +103,19 @@ https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cl
 
 IMPORTANT: Export to Google Calendar won't work locally. I only whitelisted my own domain (https://c-ronics.com) for the use of the API with my client-id.
 
+### Deployment of project
+
+I deployed the project on https://www.hetzner.de on my domain c-ronics.com, taking the following steps:
+
+1. Download the project from GitHub:    
+    1.1 Open the repository on GitHub    
+    1.2 Click the button "Clone or download" > download ZIP  
+    1.3 Unpack the ZIP-File
+
+2. Upload the project to the host     
+    2.1 Open the host's server in Cyberduck (cyberduck.io)   
+    2.2 Create a new folder on the root directory (ireadmore) and grag all the files from the unpacked ZIP-file
+
 ***
 ## Credits
 
@@ -109,6 +126,8 @@ The photos used are from pixabay.com.
 ### Code
 
 Besides the Code Institute Walkthrough projects, I often consulted stackoverflow.com and w3schools.com for tips.
+
+Thanks also to my Code Institute Mentor Adegbenga Adeye for all the useful input.
 
 The Google Calendar API documentation provided the necessary knowledge for writing the code in /assets/js/export-schedule.js. Especially the following two examples helped greatly:
 - [JavaScript implementation of the API](https://developers.google.com/calendar/quickstart/js)
