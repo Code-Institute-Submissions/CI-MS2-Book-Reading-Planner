@@ -223,7 +223,7 @@ input[type=radio] {
 }
 
 #status-wrapper {
-    margin: 5px auto 5px auto;
+    margin: 15px auto 5px auto;
     border: 0.5px solid #333;
     border-radius: 15px;
     max-width: 500px;
