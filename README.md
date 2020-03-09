@@ -42,7 +42,7 @@ Fixed navigation bar on top with a logo and links to jump to the main sections.
 Footer at the bottom of the home page with copyright information and contact links
 
 ### Skeleton
-[Wireframe](/wireframe.pdf)
+[Wireframe](/attachments/wireframe.pdf)
 
 ### Surface
 
@@ -89,7 +89,7 @@ Footer at the bottom of the home page with copyright information and contact lin
 ***
 ## Testing
 
-I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](https://c-ronics.com/course/iReadMore-testing.xlsx).
+I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](/attachments/iReadMore-testing.xlsx).
 
 ***
 ## Deployment

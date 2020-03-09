@@ -105,7 +105,7 @@ let savedData = {
 let calendarLabels = {
     weekDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     allMonths: ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"]
-}
+};
 
 // --- A delay after every user input, avoids updating the UI with every single keystroke ---
 let delay = {
@@ -123,7 +123,7 @@ let delay = {
             }
         }, 500);
     }
-}
+};
 
 // --- is called when the reading goal is a number of pages ---
 function countDays() {
@@ -168,7 +168,7 @@ function countPages() {
         savedData.books[savedData.currentBook].goalPages = roundedNumber;
 
         // subtracting days when reading 0.n pages per day more
-        discrepance = Math.round((1 - (numberOfPages - Math.floor(numberOfPages))) * result)
+        discrepance = Math.round((1 - (numberOfPages - Math.floor(numberOfPages))) * result);
         if (discrepance > roundedNumber) {
             result -= Math.floor(Math.floor(discrepance) / roundedNumber);
         }
@@ -213,7 +213,7 @@ function inputCheck(totalPages, goalPages) {
     }
     let dayChecked = $("input[type=checkbox]:checked").length;
     if(!dayChecked) {
-        $("#summary").text("You need to select at least one weekday")
+        $("#summary").text("You need to select at least one weekday");
         savedData.books[savedData.currentBook].readingDates = [];
         returnValue = false;
     }
@@ -234,7 +234,7 @@ function drawCalendar(days) {
         dateAdder.setDate(1);
         dateAdder.setMonth(today.getMonth() + monthLooper);
         let displayThisMonth = dateAdder.getMonth();
-        let checkForBreak = dateAdder.getFullYear() * 100 + displayThisMonth
+        let checkForBreak = dateAdder.getFullYear() * 100 + displayThisMonth;
         let monthTitle = document.createElement("h3");
         monthTitle.textContent = (calendarLabels.allMonths[displayThisMonth] + " " + dateAdder.getFullYear());
         dateAdder.setDate(dateAdder.getDate() - dateAdder.getDay());
@@ -257,7 +257,7 @@ function drawCalendar(days) {
             // building the columns
             for (let j = 0; j < 7; j++) {
                 let td = document.createElement('td');
-                tr.appendChild(td)
+                tr.appendChild(td);
                 if (i == 0) { // create titles
                     td.innerText = calendarLabels.weekDays[j];
                     td.classList.add("week-day");
@@ -286,8 +286,8 @@ function drawCalendar(days) {
             tbdy.appendChild(tr);
         }
         tbl.appendChild(tbdy);
-        calendarMonthBg.appendChild(tbl)
-        el.appendChild(calendarMonthBg)
+        calendarMonthBg.appendChild(tbl);
+        el.appendChild(calendarMonthBg);
         dateAdder = resetDate();
         monthLooper += 1;
     }
@@ -317,7 +317,7 @@ function drawCalendar(days) {
                 <br><hr>
             </div> 
         </div>
-    `)
+    `);
     });	
 }
 
@@ -343,9 +343,9 @@ function updateSummary() {
 function toggleGoal(goalType, label, show, hide) {
         $("#months, #print-table").empty();
         $("#inputMethod").text(label);
-        $("#goalPg, #goalDt").val("")
+        $("#goalPg, #goalDt").val("");
         $(show).show();
         $(hide).hide();
-        $("#summary").text("Please set a new reading goal")
+        $("#summary").text("Please set a new reading goal");
         savedData.books[savedData.currentBook].goalType = goalType;
     }

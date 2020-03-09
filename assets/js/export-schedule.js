@@ -71,7 +71,7 @@ function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
     goAheadButtonClicked = false;
     signedInToGoogle = false;
-    $("#status-display").text(`Signed out from Google`)
+    $("#status-display").text(`Signed out from Google`);
 }
 
 function Event(summary, start, end) {
@@ -93,16 +93,16 @@ function saveEvents() {
         let pagesRange = "";
         if(i == (datesArray.length - 1)) {
             pagesRange = "the last pages";
-            $("#status-display").text(`Export complete`)
+            $("#status-display").text(`Export complete`);
         } else {
             pagesRange = `pages ${pages * i} - ${pages * i + pages - 1}`;
-            $("#status-display").text(`Exporting events... ${100 / datesArray.length * (i + 1)} %`)
+            $("#status-display").text(`Exporting events... ${100 / datesArray.length * (i + 1)} %`);
         }
         let event = new Event(
             `Read ${pagesRange} of '${savedData.books[savedData.currentBook].bookTitle}'`,
             {"dateTime": startDate.toISOString()},
             {"dateTime": endDate.toISOString()} // add minutes
-        )
+        );
         var request = gapi.client.calendar.events.insert({
             "calendarId": "primary",
             "resource": event
