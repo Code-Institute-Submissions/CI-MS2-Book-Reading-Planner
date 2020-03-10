@@ -36,15 +36,17 @@ section {
     font-weight: 600;
 }
 
-.btn-toggle {
+.btn-tab {
+    width: 100px;
     color: #333;
     background-color: #eee;
+    border: 1px solid transparent;
     border-radius: 20px 20px 0 0;
     margin: 10px 0 0 0;
     font-weight: 300;
 }
 
-.btn-toggle-active {
+.btn-tab-active {
     background-color: #ddd;
     font-weight: 600;
 }

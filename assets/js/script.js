@@ -63,14 +63,14 @@ $(document).ready(function () {
     $("#btn-toggle-months").click(function () {
         $("#months").show();
         $("#schedule").hide();
-        $(this).addClass("btn-toggle-active");
-        $("#btn-toggle-schedule").removeClass("btn-toggle-active");
+        $(this).addClass("btn-tab-active");
+        $("#btn-toggle-schedule").removeClass("btn-tab-active");
     });
     $("#btn-toggle-schedule").click(function () {
         $("#schedule").show();
         $("#months").hide();
-        $(this).addClass("btn-toggle-active");
-        $("#btn-toggle-months").removeClass("btn-toggle-active");
+        $(this).addClass("btn-tab-active");
+        $("#btn-toggle-months").removeClass("btn-tab-active");
     });
 
     // --- replacement for css style: html {scroll-behavior: smooth;} to work in all browsers ---
