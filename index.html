@@ -96,62 +96,84 @@
 
     <!-- Third Section - Shows the Summary, Screen and print calendar, Action buttons (for print and export function), and status if applicable -->
     <section id="calendar-section" class="container-xl">
-        <div id="online-summary">
+        <div class="print-hide">
             <div id="summary-title">	
-                <h2><i class="fas fa-user"></i>Overview</h2>
-                <div class="btns-right">
-                    <input id="signout-google" type="button" value="Signout from Google" class="btn" />
-                    <input id="export-google" type="button" value="Export" class="btn" />
-                </div>
+                <h2><i class="fas fa-user"></i>Your Reading Plan</h2>
             </div>
             <div class="subsection-wrapper">
-                <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
-                <div id="status-wrapper">
-                    <table>
-                        <tr>
-                            <td><i class="fas fa-info-circle"></i></td>
-                            <td id="status-display">Click on the Export-button to create events for Google Calendar.</td>
-                        </tr>
-                    </table>
-                </div>
+                <table>
+                    <tr>
+                        <td><i class="fas fa-info-circle"></i></td>
+                        <td id="status-display">Click on the Export-button to create events for Google Calendar. To print, first select the "Schedule"-tab.</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Creating the two tabs -->
+            <input id="btn-toggle-months" type="button" value="Months" class="btn btn-toggle btn-toggle-active" />
+            <input id="btn-toggle-schedule" type="button" value="Schedule" class="btn btn-toggle" />
+        </div>
+            <div class="subsection-wrapper tabbed-subsection">
                 <div id="months">
+                    <div class="row">
+                        <div class="col-12 col-sm-7">
+                            <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="btns-right">
+                                <input id="signout-google" type="button" value="Google signout" class="btn" />
+                                <input id="export-google" type="button" value="Export" class="btn" />
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
                 </div>
-            </div>
-        </div>
-        <div id="print-title">
-            <h2><i class="fas fa-clipboard-list"></i>Reading Schedule</h2>
-            <div class="btns-right">
-                <input id="btn-print" type="button" value="Print" class="btn" />
-            </div>
-        </div>
-        <div id="print-schedule" class="subsection-wrapper">
-            <div id="print-introduction">
-                <span class="logo"><em>iReadMore</em></span><br><h3><span id="print-summary">  </span></h3>
-            </div>
-                <!-- Creating the headers for the print schedule -->
-            <div class="row">
-                <div class="col-8 col-md-3 col-padding">
-                    <h3>Date</h3>
-                    <hr>
+                <div id="schedule">
+                <div id="print-introduction">
+                        <span class="logo"><em>iReadMore</em></span>
+                    </div>
+                <div class="row">
+                        <div class="col-12 col-sm-7">
+                            <h3 id="print-summary">Reading Plan for book</h3>
+                        </div>
+                        <div class="col-12 col-sm-5">
+                            <div class="btns-right">
+                                <input id="btn-print" type="button" value="Print" class="btn print-hide" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="print-schedule">
+
+                    <!-- Creating the headers for the print schedule -->
+                    <div class="row">
+                        <div class="col-8 col-md-3 col-padding">
+                            <h3>Date</h3>
+                            <hr>
+                        </div>
+                        <div class="col-4 col-md-2 col-padding">
+                            <h3>Pages</h3>
+                            <hr>
+                        </div>
+                        <div class="d-none d-md-block col-md-1 col-padding">
+                            <h3>Check</h3>
+                            <hr>
+                        </div>
+                    <div class="d-none d-md-block col-md-6 col-padding">
+                        <h3>Remarks</h3>
+                        <hr>
+                    </div> 
                 </div>
-                <div class="col-4 col-md-2 col-padding">
-                    <h3>Pages</h3>
-                    <hr>
+                <div id="print-table">
+                    <!-- the print schedule appears here, generated in the function drawCalendar() in script.js -->
                 </div>
-                <div class="d-none d-md-block col-md-1 col-padding">
-                    <h3>Check</h3>
-                    <hr>
                 </div>
-                <div class="d-none d-md-block col-md-6 col-padding">
-                    <h3>Remarks</h3>
-                    <hr>
-                </div> 
             </div>
-            <div id="print-table">
-                <!-- the print schedule appears here, generated in the function drawCalendar() in script.js -->
-            </div>
-        </div>
+
+        
+
+        
+        
     </section>
 
     <!-- Footer not fixed at the bottom -->

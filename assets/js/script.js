@@ -44,10 +44,10 @@ $(document).ready(function () {
         delay.count();
     });
     $("#btn-print").click(function () {
-        $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").hide();
+        $("#input-section, #introduction, header, footer, .print-hide").hide();
         $("#print-introduction").show();
         window.print();
-        $("#input-section, #introduction, #months, header, footer, #print-title, #online-summary").show();
+        $("#input-section, #introduction, header, footer, .print-hide").show();
         $("#print-introduction").hide();
     });
     $("#export-google").click(function() {
@@ -58,6 +58,19 @@ $(document).ready(function () {
         } else {
             $("#events-warning").text("one event");
         }
+    });
+    $("#schedule").hide();
+    $("#btn-toggle-months").click(function () {
+        $("#months").show();
+        $("#schedule").hide();
+        $(this).addClass("btn-toggle-active");
+        $("#btn-toggle-schedule").removeClass("btn-toggle-active");
+    });
+    $("#btn-toggle-schedule").click(function () {
+        $("#schedule").show();
+        $("#months").hide();
+        $(this).addClass("btn-toggle-active");
+        $("#btn-toggle-months").removeClass("btn-toggle-active");
     });
 
     // --- replacement for css style: html {scroll-behavior: smooth;} to work in all browsers ---
@@ -335,8 +348,9 @@ function updateSummary() {
         savedData.books[savedData.currentBook].bookTitle}" on ${
         calendarLabels.allMonths[goalSplit[1]]} ${goalSplit[2]}, ${
         goalSplit[0]}, reading ${
-        savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar below.`);
-    $("#print-summary").html(`Reading Plan "${savedData.books[savedData.currentBook].bookTitle}"`);
+        savedData.books[savedData.currentBook].goalPages} page(s) every time marked in the calendar.`);
+    $("#print-summary").html(`Reading Plan "${savedData.books[savedData.currentBook].bookTitle}", until ${
+        calendarLabels.allMonths[goalSplit[1]]} ${goalSplit[2]}, ${goalSplit[0]}`);
 }
 
 // --- called when changing the reading goal (change of radio button) ---

@@ -24,14 +24,37 @@ section {
     clear: both;
 }
 
+.tabbed-subsection {
+    border-radius: 0 15px 15px 15px;
+}
+
 .btn {
     background-color: #333;
     border-radius: 10px;
     width: 100px;
-    margin: 15px 0 5px 5px;
+    margin: 5px 0 5px 5px;
     font-weight: 600;
     color: #fff;
 }
+
+
+
+
+.btn-toggle {
+    border-radius: 20px 20px 0 0;
+    margin: 10px 0 0 0;
+    background-color: #eee;
+    color: #333;
+    font-weight: 300;
+}
+
+.btn-toggle-active {
+    background-color: #ddd;
+    font-weight: 600;
+}
+
+
+
 
 .btn:hover {
     background-color: #A69D91;
@@ -39,8 +62,9 @@ section {
 }
 
 .btns-right {
-    float: right;
-    display: inline;
+    
+    display: block;
+    text-align: right;
 }
 
 /*------------------------------------------------------- Text: Headers */
@@ -208,25 +232,17 @@ input[type=radio] {
 /*------------------------------------------------------- Section calendar    */
 
 #calendar-section .subsection-wrapper {
-    background-color: rgba(0,0,0,0.1);
-    min-height: 380px;
+    background-color: #ddd;
 }
 
 #signout-google {
     font-size: 1rem;
     display: inline-block;
     width: auto;
-    background-color: #fff;
+    background-color: #ddd;
     color: #333;
     font-weight: 300;
     font-style: italic;
-}
-
-#status-wrapper {
-    margin: 15px auto 5px auto;
-    border: 0.5px solid #333;
-    border-radius: 15px;
-    max-width: 500px;
 }
 
 .fa-info-circle {
@@ -241,6 +257,12 @@ input[type=radio] {
 
 #summary {
     color: #a7170e;
+    text-align: left;
+}
+
+#print-summary {
+    color: #a7170e;
+    text-align: left;
 }
 
 hr {
@@ -306,7 +328,7 @@ td {
     font-size: 1rem;
 }
 
-#print-schedule .logo {
+#print-introduction .logo {
     font-size: 1.5rem;
     color: #000;
     padding-left: 0;
