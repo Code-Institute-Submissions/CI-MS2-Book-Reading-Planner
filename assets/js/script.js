@@ -1,7 +1,5 @@
 $(document).ready(function () {
-    // --- Enable tooltips (used for navbar icons) ---
-    $('[data-toggle="tooltip"]').tooltip();
-
+    
     // --- reacting to user input ---
     $("#outputAmount").click(function () {
         $("#status-display").text("Click on the Export-button to create events for Google Calendar.");
