@@ -4,11 +4,18 @@
 
 This projects helps people to read a book intentionnaly by creating and a reading plan.
 
+![Responsiveness Screenshot](attachments/responsiveness-screenshot.png)
+
+Link to live website: https://c-ronics.com/ireadmore/index.html
+
+
 ***
 ## UX
 User stories:
 - I want to know when I finish reading a book, or how much I have to read when I set a goal.
 - I consider buying a book, and want to know approximately how much effort I have to put into reading it
+- I'd like to see in my calendar what pages I have to read of a certain book
+- I want to print a reading plan and pin it on my fridge as a reminder
 
 ### Strategy
 Create a reading schedule for books, offering 2 tracks of information as an output:
