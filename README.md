@@ -2,7 +2,7 @@
 
 ### Code Institute Milestone Project 2 - Interactive Frontend Development
 
-This projects helps people to read a book intentionnaly by creating a reading plan.
+This project helps people to read a book intentionnaly by creating a reading plan.
 
 ![Responsiveness Screenshot](attachments/responsiveness-screenshot.png)
 
