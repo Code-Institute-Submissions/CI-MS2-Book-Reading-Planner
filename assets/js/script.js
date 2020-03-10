@@ -235,7 +235,7 @@ function inputCheck(totalPages, goalPages) {
 
 // --- creates the calendar in the calendar-section. Both table and print version ---
 function drawCalendar(days) {
-    let el = document.getElementById("months");
+    let buildingSpace = document.getElementById("months");
     let today = new Date();
     let timeSplit = savedData.books[savedData.currentBook].readingTime.split(":");
     today.setHours(timeSplit[0], timeSplit[1], 0);
@@ -300,7 +300,7 @@ function drawCalendar(days) {
         }
         tbl.appendChild(tbdy);
         calendarMonthBg.appendChild(tbl);
-        el.appendChild(calendarMonthBg);
+        buildingSpace.appendChild(calendarMonthBg);
         dateAdder = resetDate();
         monthLooper += 1;
     }
@@ -355,11 +355,11 @@ function updateSummary() {
 
 // --- called when changing the reading goal (change of radio button) ---
 function toggleGoal(goalType, label, show, hide) {
-        $("#months, #print-table").empty();
-        $("#inputMethod").text(label);
-        $("#goalPg, #goalDt").val("");
-        $(show).show();
-        $(hide).hide();
-        $("#summary").text("Please set a new reading goal");
-        savedData.books[savedData.currentBook].goalType = goalType;
-    }
+    $("#months, #print-table").empty();
+    $("#inputMethod").text(label);
+    $("#goalPg, #goalDt").val("");
+    $(show).show();
+    $(hide).hide();
+    $("#summary").text("Please set a new reading goal");
+    savedData.books[savedData.currentBook].goalType = goalType;
+}
