@@ -71,7 +71,7 @@
                         <input type="date" name="title" id="goalDt">
                     </div>
                 </form>
-                
+
                 <!-- input group 3/3-->
                 <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
                 <form class="form-row subsection-wrapper">
@@ -118,7 +118,7 @@
                 <input id="btn-toggle-schedule" type="button" value="Schedule" class="btn-tab" />
             </div>
             <div class="subsection-wrapper tabbed-subsection">
-                <div id="months">
+                <div id="months-introduction">
                     <div class="row">
                         <div class="col-12 col-sm-7">
                             <h3 id="summary">You will be finished with reading on (date), reading xx pages every time</h3>
@@ -130,6 +130,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="months">
                     <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
                 </div>
                 <div id="schedule">
@@ -184,7 +186,7 @@
             <i class="fab fa-linkedin-in text-center social-icon"></i>
             </a>
         </footer>
-
+        
         <!-- Modal warning for Google Calendar export -->
         <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">

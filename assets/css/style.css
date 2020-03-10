@@ -46,6 +46,10 @@ section {
     font-weight: 300;
 }
 
+.btn-tab:focus {
+    outline: none;
+}
+
 .btn-tab-active {
     background-color: #ddd;
     font-weight: 600;

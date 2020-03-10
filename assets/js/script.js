@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
     $("#outputWhen").click(function () {
         $("#status-display").text("Note that iReadMore rounds up to full pages. Therefore, it's possible that the finish date is earlier than the date entered.");
-        toggleGoal("date", "Date to be finished", "#goalDt", "#goalPg");
+        toggleGoal("date", "Finish date", "#goalDt", "#goalPg");
     });
     $('#bookTitle').on('input', function () {
         $("#bookTitle").popover("hide");
@@ -61,14 +61,14 @@ $(document).ready(function () {
     });
     $("#schedule").hide();
     $("#btn-toggle-months").click(function () {
-        $("#months").show();
+        $("#months, #months-introduction").show();
         $("#schedule").hide();
         $(this).addClass("btn-tab-active");
         $("#btn-toggle-schedule").removeClass("btn-tab-active");
     });
     $("#btn-toggle-schedule").click(function () {
         $("#schedule").show();
-        $("#months").hide();
+        $("#months, #months-introduction").hide();
         $(this).addClass("btn-tab-active");
         $("#btn-toggle-months").removeClass("btn-tab-active");
     });
@@ -360,6 +360,6 @@ function toggleGoal(goalType, label, show, hide) {
     $("#goalPg, #goalDt").val("");
     $(show).show();
     $(hide).hide();
-    $("#summary").text("Please set a new reading goal");
+    $("#summary, #print-summary").text("Please set a new reading goal");
     savedData.books[savedData.currentBook].goalType = goalType;
 }
