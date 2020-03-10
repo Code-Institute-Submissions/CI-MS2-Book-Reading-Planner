@@ -1,118 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
-    <title>iReadMore</title>
-</head>
-<body data-spy="scroll" data-target=".navbar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Blinker:300,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Chela+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="icon" type="image/png" href="assets/images/favicon.png"/>
+        <title>iReadMore</title>
+    </head>
+    <body data-spy="scroll" data-target=".navbar">
 
-    <!-- Fixed header -->
-    <header class="fixed-top">  
-        <nav class="navbar navbar-expand">
+        <!-- header (fixed) -->
+        <header class="fixed-top">
+            <nav class="navbar navbar-expand">
+                <div class="container-xl">
+                    <a class="logo" href="#introduction" id="main-logo"><em>iReadMore</em></a>
+                    <ul class="navbar-nav ml-auto mr-2">
+                        <li class="nav-item mr-2"><a class="nav-link" href="#introduction"><i class="fas fa-home"></i></a></li>
+                        <li class="nav-item mr-2"><a class="nav-link" href="#input-section"><i class="fas fa-edit"></i></a></li>
+                        <li class="nav-item mr-2"><a class="nav-link" href="#calendar-section"><i class="fas fa-calendar-alt"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- First Section - Home -->
+        <section id="introduction">
+            <div class="container-xl background-hero">
+                <h1>Say goodbye to procrastination!</h1>
+                <div class="introduction-text">
+                    <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.</p>
+                    <p>Fill out the form below to get started. Scroll down or use the navigation icons on top to navigate.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Section - User Input -->
+        <section id="input-section">
             <div class="container-xl">
-                <a class="logo" href="#introduction" id="main-logo"><em>iReadMore</em></a>
-                <ul class="navbar-nav ml-auto mr-2">
-                    <li class="nav-item mr-2"><a class="nav-link" href="#introduction"><i class="fas fa-home"></i></a></li>
-                    <li class="nav-item mr-2"><a class="nav-link" href="#input-section"><i class="fas fa-edit"></i></a></li>
-                    <li class="nav-item mr-2"><a class="nav-link" href="#calendar-section"><i class="fas fa-calendar-alt"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
-    <!-- First Section - Home -->
-    <section id="introduction">
-    <div class="container-xl background-hero">
-        <h1>Say goodbye to procrastination!</h1>
-        <div class="introduction-text">
-            <p>Create a personal reading plan for any book. View, print, or export your schedule to Google Calendar.</p>
-            <p>Fill out the form below to get started. Scroll down or use the navigation icons on top to navigate.</p>
-        </div>
-    </div>
-    </section>
-    
-    <!-- Second Section - User Input -->
-    <section id="input-section">
-    <div class="container-xl">
+                <!-- input group 1/3-->
+                <h2><i class="fas fa-edit"></i> Basic information</h2>
+                <form class="form-row subsection-wrapper">
+                    <div class="col-12 col-sm-7">
+                        <label>Book title</label><br>
+                        <input type="text" name="title" id="bookTitle" value="Example">
+                    </div>
+                    <div class="col-12 col-sm-5 full-size-column">
+                        <label>Total number of pages</label><br>
+                        <input type="number" name="pages" id="totalPages" value="300">
+                    </div>
+                </form>
 
-        <!-- input group 1/3-->
-	    <h2><i class="fas fa-edit"></i> Basic information</h2>	
-        <form class="form-row subsection-wrapper">
-            <div class="col-12 col-sm-7">
-                <label>Book title</label><br>
-                <input type="text" name="title" id="bookTitle" value="Example">
+                <!-- input group 2/3-->
+                <h2><i class="fas fa-bullseye"></i> Set a reading goal</h2>
+                <form class="form-row subsection-wrapper">
+                    <div class="col-12 col-sm-7">
+                        <input type="radio" name="outputType" value="1" checked id="outputAmount">
+                        <label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
+                        <input type="radio" name="outputType" value="2" id="outputWhen">
+                        <label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
+                    </div>
+                    <div class="col-12 col-sm-5 full-size-column">
+                        <label id="inputMethod">Number of pages</label><br>
+                        <input type="number" name="title" id="goalPg" value="12">
+                        <input type="date" name="title" id="goalDt">
+                    </div>
+                </form>
+                
+                <!-- input group 3/3-->
+                <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
+                <form class="form-row subsection-wrapper">
+                    <div class="col-12 col-sm-6">
+                        <p>Time and duration, used for exporting events:</p>
+                        <br>
+                        <label class="short-label">At:</label><input type="time" id="eventTime" class="short-field" value="20:00">
+                        <p> Time</p>
+                        <br>
+                        <label class="short-label">For:</label><input type="number" id="eventLength" class="short-field" value="60">
+                        <p> Minutes</p>
+                    </div>
+                    <div class="col-12 col-sm-6 full-size-column" id="weekday-check">
+                        <p>Weekday:</p>
+                        <br>
+                        <input type="checkbox" class="dayCheck" id="sunday" name="sunday" value="1" checked><label for="sunday">Sunday</label><br>
+                        <input type="checkbox" class="dayCheck" id="monday" name="monday" value="1" checked><label for="monday">Monday</label><br>
+                        <input type="checkbox" class="dayCheck" id="tuesday" name="Tuesday" value="1" checked><label for="tuesday">Tuesday</label><br>
+                        <input type="checkbox" class="dayCheck" id="wednesday" name="Wednesday" value="1" checked><label for="wednesday">Wednesday</label><br>
+                        <input type="checkbox" class="dayCheck" id="thursday" name="Thursday" value="1" checked><label for="thursday">Thursday</label><br>
+                        <input type="checkbox" class="dayCheck" id="friday" name="Friday" value="1" checked><label for="friday">Friday</label><br>
+                        <input type="checkbox" class="dayCheck" id="saturday" name="Saturday" value="1" checked><label for="saturday">Saturday</label><br>
+                    </div>
+                </form>
             </div>
-            <div class="col-12 col-sm-5 full-size-column">
-                <label>Total number of pages</label><br>
-                <input type="number" name="pages" id="totalPages" value="300">
-            </div>
-        </form>
+        </section>
 
-        <!-- input group 2/3-->
-        <h2><i class="fas fa-bullseye"></i> Set a reading goal</h2>
-        <form class="form-row subsection-wrapper">
-            <div class="col-12 col-sm-7">
-                <input type="radio" name="outputType" value="1" checked id="outputAmount">
-                <label class="radio-label" for="outputAmount">How many pages do you read at once?</label><br>
-                <input type="radio" name="outputType" value="2" id="outputWhen">
-                <label class="radio-label" for="outputWhen">When do you want to be finished reading?</label><br>
+        <!-- Third Section - Shows the Summary, Screen and print calendar, Action buttons (for print and export function), and status -->
+        <section id="calendar-section" class="container-xl">
+            <div class="print-hide">
+                <div id="summary-title">
+                    <h2><i class="fas fa-user"></i>Your Reading Plan</h2>
+                </div>
+                <div class="subsection-wrapper">
+                    <table>
+                        <tr>
+                            <td><i class="fas fa-info-circle"></i></td>
+                            <td id="status-display">Click on the Export-button to create events for Google Calendar. To print, first select the "Schedule"-tab.</td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- Creating the two tabs -->
+                <input id="btn-toggle-months" type="button" value="Months" class="btn btn-toggle btn-toggle-active" />
+                <input id="btn-toggle-schedule" type="button" value="Schedule" class="btn btn-toggle" />
             </div>
-            <div class="col-12 col-sm-5 full-size-column">
-                <label id="inputMethod">Number of pages</label><br>
-                <input type="number" name="title" id="goalPg" value="12">
-                <input type="date" name="title" id="goalDt">
-            </div>		
-        </form>
-
-        <!-- input group 3/3-->
-        <h2><i class="fas fa-clock"></i> When can you typically read?</h2>
-	    <form class="form-row subsection-wrapper">
-            <div class="col-12 col-sm-6">
-                <p>Time and duration, used for exporting events:</p><br>
-                <label class="short-label">At:</label><input type="time" id="eventTime" class="short-field" value="20:00"><p> Time</p><br>
-                <label class="short-label">For:</label><input type="number" id="eventLength" class="short-field" value="60"><p> Minutes</p>
-            </div>
-            <div class="col-12 col-sm-6 full-size-column" id="weekday-check">
-                <p>Weekday:</p><br>
-                <input type="checkbox" class="dayCheck" id="sunday" name="sunday" value="1" checked><label for="sunday">Sunday</label><br>
-                <input type="checkbox" class="dayCheck" id="monday" name="monday" value="1" checked><label for="monday">Monday</label><br>
-                <input type="checkbox" class="dayCheck" id="tuesday" name="Tuesday" value="1" checked><label for="tuesday">Tuesday</label><br>
-                <input type="checkbox" class="dayCheck" id="wednesday" name="Wednesday" value="1" checked><label for="wednesday">Wednesday</label><br>
-                <input type="checkbox" class="dayCheck" id="thursday" name="Thursday" value="1" checked><label for="thursday">Thursday</label><br>
-                <input type="checkbox" class="dayCheck" id="friday" name="Friday" value="1" checked><label for="friday">Friday</label><br>
-                <input type="checkbox" class="dayCheck" id="saturday" name="Saturday" value="1" checked><label for="saturday">Saturday</label><br>
-            </div>
-        </form>
-    </div>
-    </section>
-
-    <!-- Third Section - Shows the Summary, Screen and print calendar, Action buttons (for print and export function), and status if applicable -->
-    <section id="calendar-section" class="container-xl">
-        <div class="print-hide">
-            <div id="summary-title">	
-                <h2><i class="fas fa-user"></i>Your Reading Plan</h2>
-            </div>
-            <div class="subsection-wrapper">
-                <table>
-                    <tr>
-                        <td><i class="fas fa-info-circle"></i></td>
-                        <td id="status-display">Click on the Export-button to create events for Google Calendar. To print, first select the "Schedule"-tab.</td>
-                    </tr>
-                </table>
-            </div>
-            
-            <!-- Creating the two tabs -->
-            <input id="btn-toggle-months" type="button" value="Months" class="btn btn-toggle btn-toggle-active" />
-            <input id="btn-toggle-schedule" type="button" value="Schedule" class="btn btn-toggle" />
-        </div>
             <div class="subsection-wrapper tabbed-subsection">
                 <div id="months">
                     <div class="row">
@@ -126,14 +130,13 @@
                             </div>
                         </div>
                     </div>
-                    
                     <!-- the calendar appears here, generated in the function drawCalendar() in script.js -->
                 </div>
                 <div id="schedule">
-                <div id="print-introduction">
+                    <div id="print-introduction">
                         <span class="logo"><em>iReadMore</em></span>
                     </div>
-                <div class="row">
+                    <div class="row">
                         <div class="col-12 col-sm-7">
                             <h3 id="print-summary">Reading Plan for book</h3>
                         </div>
@@ -144,69 +147,66 @@
                         </div>
                     </div>
                     <div id="print-schedule">
-
-                    <!-- Creating the headers for the print schedule -->
-                    <div class="row">
-                        <div class="col-8 col-md-3 col-padding">
-                            <h3>Date</h3>
-                            <hr>
+                        <!-- Creating the headers for the schedule -->
+                        <div class="row">
+                            <div class="col-8 col-md-3 col-padding">
+                                <h3>Date</h3>
+                                <hr>
+                            </div>
+                            <div class="col-4 col-md-2 col-padding">
+                                <h3>Pages</h3>
+                                <hr>
+                            </div>
+                            <div class="d-none d-md-block col-md-1 col-padding">
+                                <h3>Check</h3>
+                                <hr>
+                            </div>
+                            <div class="d-none d-md-block col-md-6 col-padding">
+                                <h3>Remarks</h3>
+                                <hr>
+                            </div>
                         </div>
-                        <div class="col-4 col-md-2 col-padding">
-                            <h3>Pages</h3>
-                            <hr>
+                        <div id="print-table">
+                            <!-- the print schedule appears here, generated in the function drawCalendar() in script.js -->
                         </div>
-                        <div class="d-none d-md-block col-md-1 col-padding">
-                            <h3>Check</h3>
-                            <hr>
-                        </div>
-                    <div class="d-none d-md-block col-md-6 col-padding">
-                        <h3>Remarks</h3>
-                        <hr>
-                    </div> 
-                </div>
-                <div id="print-table">
-                    <!-- the print schedule appears here, generated in the function drawCalendar() in script.js -->
-                </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-        
-
-        
-        
-    </section>
-
-    <!-- Footer not fixed at the bottom -->
-    <footer>
-        <p>&#169; 2020 Andreas Jost</p>
-        <a href="mailto:codefactory@gmx.ch">
+        <!-- Footer (not fixed at the bottom) -->
+        <footer>
+            <p>&#169; 2020 Andreas Jost</p>
+            <a href="mailto:codefactory@gmx.ch">
             <i class="far fa-envelope text-center social-icon"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/andreas-jost-1218a7107/" target="_blank">
+            </a>
+            <a href="https://www.linkedin.com/in/andreas-jost-1218a7107/" target="_blank">
             <i class="fab fa-linkedin-in text-center social-icon"></i>
-        </a>
-    </footer>
+            </a>
+        </footer>
 
-    <!-- Modal warning for Google Calendar export -->
-    <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <h5 class="modal-title" id="exampleModalLabel">Export to Google Calendar</h5><br>
-                    <p>iReadMore will create <span id="events-warning"></span> in your Google Calendar. Please confirm by clicking 'OK'.</p>
-                    <br>
-                    <p>The app is not yet verified. After the following Google login, click on 'Advanced - Go to c-ronics.com' to proceed.</p><br>
-                    <button type="button" class="btn" data-dismiss="modal">Cancel</button>
-                    <button id="goahead-google" type="button" class="btn" data-dismiss="modal">OK</button>
+        <!-- Modal warning for Google Calendar export -->
+        <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h5 class="modal-title" id="exampleModalLabel">Export to Google Calendar</h5>
+                        <br>
+                        <p>iReadMore will create <span id="events-warning"></span> in your Google Calendar. Please confirm by clicking 'OK'.</p>
+                        <br>
+                        <p>The app is not yet verified. After the following Google login, click on 'Advanced - Go to c-ronics.com' to proceed.</p>
+                        <br>
+                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                        <button id="goahead-google" type="button" class="btn" data-dismiss="modal">OK</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/export-schedule.js"></script>
-    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
-</body>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="assets/js/script.js"></script>
+        <script src="assets/js/export-schedule.js"></script>
+        <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+    </body>
 </html>
