@@ -12,7 +12,7 @@ Link to live website: https://c-ronics.com/ireadmore/index.html
 ***
 ## UX
 User stories:
-- I want to know when I finish reading a book, or how much I have to read when I set a goal.
+- I want to know when I finish reading a book, or how much I have to read when I set a goal
 - I consider buying a book, and want to know approximately how much effort I have to put into reading it
 - I'd like to see in my calendar what pages I have to read of a certain book
 - I want to print a reading plan and pin it on my fridge as a reminder
@@ -33,7 +33,7 @@ Further options selectable such as:
 - What time the reading is happening (used for Google export)
 - How long a reading session normally is (used for Google export)
 
-Output: Calendar with the days marked when the reading needs to happen. The user has the following options how to proceed:
+Output: Calendar with the days marked when the reading needs to happen, or a detailed schedule. The user has the following options to proceed:
 - Print a reading schedule
 - Export schedule to Google Calendar as calendar events (main calendar)
 
@@ -42,7 +42,7 @@ Output: Calendar with the days marked when the reading needs to happen. The user
 One page design, three main sections:
 - home page with a short introduction
 - input of data, adjustements of options
-- calendar as a table, detailed schedule, and Print/Export buttons
+- calendar as a table or detailed schedule (selectable), and Export/Print button
 
 Fixed navigation bar on top with a logo and links to jump to the main sections.
 
@@ -57,7 +57,7 @@ Footer at the bottom of the home page with copyright information and contact lin
 - Subtile footer
 - Short introduction with a tagline and a call to action
 - Sample values when opening the page ( > promting users to experiment through changing the values)
-- Update happens automatically, following the trend of many modern web-forms ( > no action-button to create the plan)
+- Update happens automatically, following the trend of many modern web-forms (no action-button to create the plan)
 
 ***
 ## Features
@@ -96,7 +96,13 @@ Footer at the bottom of the home page with copyright information and contact lin
 ***
 ## Testing
 
-I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](/attachments/iReadMore-testing.xlsx).
+I had used Jasmine to test some functions and initial error messages. Later in the project, I did extensive manual testing, as described in the document [iReadMore-testing](attachments/iReadMore-testing.xlsx).
+
+I ran the code through validation services (https://validator.w3.org/, http://jigsaw.w3.org/css-validator/ and https://jshint.com/). The following errors still appear:
+
+- HTML: Attribute onreadystatechange not allowed on element script at this point. I left it as it is because this is the recommended link from the Google API.
+- CSS warning: ...is an unknown vendor extended pseudo-class. I left it in the code because it's the recommentded solution of w3schools to avoid displaying arrows in the number-inputfileds. And: it works anyway.
+
 
 ***
 ## Deployment
